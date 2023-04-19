@@ -1,0 +1,59 @@
+{
+    "name": "pxt-rb-joypi-advanced",
+    "version": "1.0.0",
+    "description": "This package provides an all-in-one library which unites all sensors and modules for the Joy-IT RB-JoyPi-Advanced.",
+    "dependencies": {
+        "core": "*",
+        "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.1"
+    },
+    "files": [
+        "README.md",
+        "_locales/de/pxt-rb-joypi-advanced-jsdoc-strings.json",
+        "_locales/de/pxt-rb-joypi-advanced-strings.json",
+        "_locales/en/pxt-rb-joypi-advanced-jsdoc-strings.json",
+        "_locales/en/pxt-rb-joypi-advanced-strings.json",
+        "7Segment-HT16K33.ts",
+        "ADC-TLA2518.ts",
+        "Barometer-MS5607.ts",
+        "ButtonMatrix.ts",
+        "Buzzer.ts",
+        "ColorSensor-VEML6040.ts",
+        "DHT11.ts",
+        "DS18B20.cpp",
+        "DS18B20.ts",
+        "EEPROM-AT24C256.ts",
+        "Gyroscope-ICG1020S.ts",
+        "HallSensor.ts",
+        "IR-TL1838.ts",
+        "Joystick.ts",
+        "LCD16x2.ts",
+        "LDR.ts",
+        "LightBarrier.ts",
+        "NTC.ts",
+        "OLED-SSD1306.ts",
+        "PIR.ts",
+        "PWMFan.ts",
+        "Potentiometer.ts",
+        "RFID-MFRC522.ts",
+        "RGBMatrix-WS2812B.ts",
+        "RTC-DS1307Z.ts",
+        "Relay.ts",
+        "RotaryEncoder.ts",
+        "Servo.ts",
+        "ShockSensor.ts",
+        "SoundSensor.ts",
+        "Stepper-ULN2003.ts",
+        "Switches.ts",
+        "TFT18.ts",
+        "TouchSensor-MPR121.ts",
+        "Ultrasonic-HC-SR04.ts",
+        "Vibration.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "microbit"
+    ]
+}

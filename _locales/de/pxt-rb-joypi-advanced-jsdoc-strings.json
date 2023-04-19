@@ -1,0 +1,5 @@
+{
+  "Colon": "Aufzaehlung fuer Ein/Aus Zustand",
+  "Color": "Farben",
+  "JoyPiAdvanced": "7 Segment Display Block\r\n\r\nADC Block\r\n\r\nBarometer Block\r\n\r\nButton Matrix Block\r\n\r\nBuzzer Block\r\n\r\nColor-Sensor Block\r\n\r\nDHT11 Block\r\n\r\nDS18B20 Temperatur-Sensor\r\n\r\nEEPROM Block\r\n\r\nGyroskop Block\r\n\r\nHall sensor Block\r\n\r\nInfrarot Block\r\n\r\nJoystick Block\r\n\r\nLCD16x2 Block\r\n\r\nLDR Block\r\n\r\nLight barrier Block\r\n\r\nNTC Block\r\n\r\nOLED SSD1306 Display Block\r\n\r\nPIR Sensor Block\r\n\r\nPWM Fan Block\r\n\r\nPotentiometer Block\r\n\r\nMFRC522 Block\r\n\r\nRGB matrix Block\r\n\r\nReal time clock Block\r\n\r\nRelais Block\r\n\r\nRotary Encoder block\r\n\r\nServo motor Block\r\n\r\nSchock-Sensor Block\r\n\r\nSound-Sensor Block\r\n\r\nSchalter Block\r\n\r\nRB-TFT1.8-V2 Block\r\n\r\nTouchSensor Block\r\n\r\nUltraschall-Abstandssensor Block\r\n\r\nVibrationsmotor Block"
+}
