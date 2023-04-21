@@ -1,6 +1,6 @@
 # MakeCode Package for the Joy-IT Joy-Pi Advanced
 
-This library provides a Microsoft Makecode package for the Joy-IT Joy-Pi Advanced. See https://joy-it.net/products/RB-JoyPi-Advanced for more details.
+This library provides a Microsoft Makecode package for the Joy-IT Joy-Pi Advanced. See https://joy-it.net/products/RB-JoyPi-Advanced and https://www.joy-pi.net for more details.
 
 ## Overview
 
