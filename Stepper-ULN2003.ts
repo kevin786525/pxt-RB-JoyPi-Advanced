@@ -1,22 +1,18 @@
-enum stepUnit {
-    //% block="steps"
-    Steps,
-    //% block="rotations"
-    Rotations
-  }
+namespace JoyPiAdvanced {
+    enum Stepunit {
+      //% block="steps"
+      steps,
+      //% block="rotations"
+      rotations
+    }
 
-enum stepperdirection {
-  //% block="Clockwise"
-  Clockwise,
-  //% block="Counterclockwise"
-  Counterclockwise
-}
-  
-  /**
-    * Stepper motor Block
-    */
-  //% color="#275C6B" weight=71 icon="\uf109" block="JoyPi Advanced"
-  namespace JoyPiAdvanced {
+    enum Stepperdirection {
+      //% block="Clockwise"
+      clockwise,
+      //% block="Counterclockwise"
+      counterclockwise
+    }
+
     const STEPPERPIN1 = DigitalPin.P4
     const STEPPERPIN2 = DigitalPin.P5
     const STEPPERPIN3 = DigitalPin.P6
@@ -65,18 +61,23 @@ enum stepperdirection {
       }
     }
   
-  
-    //% block="Rotate stepper %stepperdirection for %steps | %unit"
+    /**
+     * Rotates the stepper motor by a specified amount of steps or rotations
+     * @param direction The direction in which the motor should turn (clockwise or counterclockwise)
+     * @param steps The amount the motor is supposed to turn
+     * @param unit The unit the motor is suppoed to turn (steps or full rotations)
+     */
+    //% block="rotate stepper %stepperdirection for %steps | %unit"
     //% subcategory="Stepper motor"
     //% weight=100
-    export function stepperRotate(direction: stepperdirection, steps: number, unit: stepUnit): void {
+    export function stepperRotate(direction: Stepperdirection, steps: number, unit: Stepunit): void {
       switch(unit) {
-        case stepUnit.Rotations: steps = steps * 2056
-        case stepUnit.Steps: steps = steps
+        case Stepunit.rotations: steps = steps * 2056
+        case Stepunit.steps: steps = steps
       }
   
       for(let i = 0 ; i < steps ; i++) {
-        if(direction == stepperdirection.Clockwise){
+        if(direction == Stepperdirection.clockwise){
           moveStep(1)
           basic.pause(1)
         }
@@ -90,5 +91,5 @@ enum stepperdirection {
       state = 0
     }
   
-  }
+}
   

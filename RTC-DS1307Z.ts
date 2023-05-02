@@ -1,7 +1,3 @@
-/**
-  * Real time clock Block
-  */
-//% color="#275C6B" weight=75 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const RTCADDR = 0x68
     const RTCSECOND = 0
@@ -38,7 +34,17 @@ namespace JoyPiAdvanced {
     // TIME SETTER
     // ----------------------------------------
   
-    //% block="Set year %year | month %month | day %day | weekday %weekday | hour %hour | minute %minute | second %second"
+    /**
+     * Sets all paramters to the RTC
+     * @param year The current year
+     * @param month The current month
+     * @param day The current day 
+     * @param weekday The current weekday
+     * @param hour  The current hour
+     * @param minute The current minute
+     * @param second The current second
+     */
+    //% block="set RTC year %year | month %month | day %day | weekday %weekday | hour %hour | minute %minute | second %second"
     //% subcategory="RTC"
     //% weight=98
     export function rtcSetDateTime(year: number, month: number, day:number, weekday: number, hour: number, minute: number, second: number): void {
@@ -54,49 +60,77 @@ namespace JoyPiAdvanced {
       pins.i2cWriteBuffer(RTCADDR, buffer)
     }
   
-    //% block="Set year %year"
+    /**
+     * Sets the year to the RTC
+     * @param year The current year
+     */
+    //% block="set RTC year %year"
     //% subcategory="RTC"
     //% weight=97
     export function rtcSetYear(year: number): void {
       setReg(RTCYEAR, decToHex(year % 100))
     }
   
-    //% block="Set month %month"
+    /**
+     * Sets the month to the RTC
+     * @param month The current month
+     */
+    //% block="set RTC month %month"
     //% subcategory="RTC"
     //% weight=96
     export function rtcSetMonth(month: number): void {
       setReg(RTCMONTH, decToHex(month % 13))
     }
   
-    //% block="Set day %day"
+    /**
+     * Sets the day to the RTC
+     * @param day The current day
+     */
+    //% block="set RTC day %day"
     //% subcategory="RTC"
     //% weight=95
     export function rtcSetDay(day: number): void {
       setReg(RTCDAY, decToHex(day % 32))
     }
   
-    //% block="Set weekday %weekday"
+    /**
+     * Sets the weekday to the RTC
+     * @param weekday The current weekday
+     */
+    //% block="set RTC weekday %weekday"
     //% subcategory="RTC"
     //% weight=94
     export function rtcSetWeekday(weekday: number): void {
       setReg(RTCWEEKDAY, decToHex(weekday % 8))
     }
   
-    //% block="Set hour %hour"
+    /**
+     * Sets the hour to the RTC
+     * @param hour The current hour
+     */
+    //% block="set RTC hour %hour"
     //% subcategory="RTC"
     //% weight=93
     export function rtcSetHour(hour: number): void {
       setReg(RTCHOUR, decToHex(hour % 24))
     }
   
-    //% block="Set minute %minute"
+    /**
+     * Sets the minute to the RTC
+     * @param minute The current minute
+     */
+    //% block="set RTC minute %minute"
     //% subcategory="RTC"
     //% weight=92
     export function rtcSetMinute(minute: number): void {
       setReg(RTCHOUR, decToHex(minute % 60))
     }
   
-    //% block="Set second %second"
+    /**
+     * Sets the second to the RTC
+     * @param second The current second
+     */
+    //% block="set RTC second %second"
     //% subcategory="RTC"
     //% weight=91
     export function rtcSetSecond(second: number): void {
@@ -107,49 +141,70 @@ namespace JoyPiAdvanced {
     // TIME GETTER
     // ----------------------------------------
   
-    //% block="Get year"
+    /**
+     * Reads the current year from the RTC
+     */
+    //% block="get RTC year"
     //% subcategory="RTC"
     //% weight=90
     export function rtcGetYear(): number {
       return Math.min(hexToDec(getReg(RTCYEAR)), 99) + 2000
     }
   
-    //% block="Get month"
+    /**
+     * Reads the current month from the RTC
+     */
+    //% block="get RTC month"
     //% subcategory="RTC"
     //% weight=89
     export function rtcGetMonth(): number {
       return Math.max(Math.min(hexToDec(getReg(RTCMONTH)), 12), 1)
     }
   
-    //% block="Get day"
+    /**
+     * Reads the current day from the RTC
+     */
+    //% block="get RTC day"
     //% subcategory="RTC"
     //% weight=88
     export function rtcGetDay(): number {
       return Math.max(Math.min(hexToDec(getReg(RTCDAY)), 31), 1)
     }
   
-    //% block="Get weekday"
+    /**
+     * Reads the current weekday from the RTC
+     */
+    //% block="get RTC weekday"
     //% subcategory="RTC"
     //% weight=87
     export function rtcGetWeekday(): number {
       return Math.max(Math.min(hexToDec(getReg(RTCWEEKDAY)), 7), 1)
     }
   
-    //% block="Get hour"
+    /**
+     * Reads the current hour from the RTC
+     */
+    //% block="get RTC hour"
     //% subcategory="RTC"
     //% weight=86
     export function rtcGetHour(): number {
       return Math.min(hexToDec(getReg(RTCHOUR)), 23)
     }
   
-    //% block="Get minute"
+    /**
+     * Reads the current minute from the RTC
+     */
+    //% block="get RTC minute"
     //% subcategory="RTC"
     //% weight=85
     export function rtcGetMinute(): number {
       return Math.min(hexToDec(getReg(RTCMINUTE)), 59)
     }
   
-    //% block="Get second"
+    /**
+     * Reads the current second from the RTC
+     */
+    //% block="get RTC second"
     //% subcategory="RTC"
     //% weight=84
     export function rtcGetSecond(): number {

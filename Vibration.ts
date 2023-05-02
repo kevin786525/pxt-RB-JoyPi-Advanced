@@ -1,15 +1,10 @@
-
-/**
-  * Vibration Block
-  */
-//% color="#275C6B" weight=66 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const vibrationPin = DigitalPin.P16
   
-    /*
-     * Turn relay off
+    /**
+     * Turns the vibration motor off
      */
-    //% block="Turn vibration off"
+    //% block="turn vibration off"
     //% subcategory="Vibration motor"
     //% weight=100
     export function vibrationOff(){
@@ -17,10 +12,10 @@ namespace JoyPiAdvanced {
       pins.digitalWritePin(vibrationPin, 0)
     }
   
-    /*
-     * Turn relay off
+    /**
+     * Turns the vibration motor on
      */
-    //% block="Turn vibration on"
+    //% block="turn vibration on"
     //% subcategory="Vibration motor"
     //% weight=90
     export function vibrationOn(){

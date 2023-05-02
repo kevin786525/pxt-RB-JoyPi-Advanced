@@ -1,7 +1,3 @@
-/**
-  * Button Matrix Block
-  */
-//% color="#275C6B" weight=97 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced  {
     let i2c_address: number
     let row1: boolean
@@ -86,7 +82,10 @@ namespace JoyPiAdvanced  {
         pins.i2cWriteBuffer(i2c_address, reset, false)
     }
 
-    //% block="Initialize Button matrix"
+    /**
+     * Initialized the button matrix
+     */
+    //% block="initialize button matrix"
     //% weight=100
     //% subcategory="Button matrix"
     export function buttonmatrixInit() {
@@ -121,7 +120,10 @@ namespace JoyPiAdvanced  {
         basic.pause(1)
     }
 
-    //% block="Button pressed"
+    /**
+     * Returns the the button-code if a button on the matrix is pressed
+     */
+    //% block="Button pressed on button matrix"
     //% weight=70
     //% subcategory="Button matrix"
     export function buttonmatrixPressed() {
@@ -158,7 +160,10 @@ namespace JoyPiAdvanced  {
         return returnValue
     }
 
-    //% block="Value of pressed Button"
+    /**
+     * Returns the exact value if a button on the matrix is pressed
+     */
+    //% block="value of pressed button on button matrix"
     //% weight=60
     //% subcategory="Button matrix"
     export function buttonmatrixPressedValue() {
@@ -182,19 +187,4 @@ namespace JoyPiAdvanced  {
 
         return -1
     }
-
-
-    /**
-    * calculate
-    * @param calculation from the keypad
-    */
-    //% blockId="CALCULATE_STRING" block="Calculate %calc"
-    //% weight=100 blockGap=8
-    //% parts=BUTTONMATRIX_MCP23008 trackArgs=0
-    //% subcategory="Keypad"
-    /* export function calculate(calculation: string){
-        let flag = '/'
-        if (flag.includes(calculation)) return parseFloat(calculation)
-        else return parseInt(calculation)
-    }*/
 }

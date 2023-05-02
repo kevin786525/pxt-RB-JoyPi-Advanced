@@ -1,14 +1,13 @@
-/**
-  * Potentiometer Block
-  */
-//% color="#275C6B" weight=81 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
 
-    //% block="Read potentiometer voltage"
+   /**
+    * Measures the current state of the potentiometer as a voltage. A higher voltage means that the potentiometer is positioned further to the right
+    */
+    //% block="potentiometer voltage"
     //% subcategory="Potentiometer"
     //% weight=100
     export function potentiometerVoltage(): number {
-      return readVoltage(3)
+      return adcReadVoltage(3)
     }
   
   }

@@ -1,16 +1,11 @@
-
-/**
-  * Ultrasonic distance sensor Block
-  */
-//% color="#275C6B" weight=67 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const echoPin = DigitalPin.P2
     const triggerPin = DigitalPin.P3
   
-    /*
-     * Measure distance with ultrasonic sensor
+    /**
+     * Measures the distance with the ultrasonic sensor
      */
-    //% block="Measure distance"
+    //% block="ultrasonic sensor distance"
     //% subcategory="Ultrasonic sensor"
     //% weight=100
     export function measureDistance(): number {

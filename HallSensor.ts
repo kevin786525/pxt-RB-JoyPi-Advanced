@@ -1,14 +1,13 @@
-/**
-  * Hall sensor Block
-  */
-//% color="#275C6B" weight=90 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
 
-    //% block="Measure voltage"
+  /**
+   * Measures the voltage of the hall sensor. A higher value means a higher amplitude
+   */
+    //% block="hall sensor voltage"
     //% subcategory="Hall sensor"
     //% weight=100
     export function hallSensorVoltage(): number {
-      return readVoltage(5)
+      return adcReadVoltage(5)
     }
   
   }

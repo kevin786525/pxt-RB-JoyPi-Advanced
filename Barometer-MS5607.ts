@@ -1,8 +1,3 @@
-/**
-  * MS5607 Barometer Block
-  */
-//% color="#275C6B" weight=98 icon="\uf109" block="JoyPi Advanced"
-
 namespace  JoyPiAdvanced{
     const barometerADDR = 0x77
     let coefficients: number[] = []
@@ -85,7 +80,10 @@ namespace  JoyPiAdvanced{
         return temp
     }
 
-    //% block="Initialize barometer"
+    /**
+     * Initializes the barometer
+     */
+    //% block="initialize barometer"
     //% weight=100
     //% subcategory="Barometer"
     export function barometerInit(): void {
@@ -93,37 +91,23 @@ namespace  JoyPiAdvanced{
         coefficients = get_coefficients()
     }
 
-    //% block="Get temperature"
+    /**
+     * Reads the ambient temperature from the barometer
+     */
+    //% block="barometer temperature"
     //% weight=90
     //% subcategory="Barometer"
     export function barometerGetTemperature() {
         return Math.round(((get_temperature() / 100) + Number.EPSILON) * 100) / 100
     }
 
-    //% block="Get pressure"
+    /**
+     * Reads the ambient air pressure from the barometer
+     */
+    //% block="barometer pressure"
     //% weight=80
     //% subcategory="Barometer"
     export function barometerGetPressure() {
         return Math.round(((get_pressure() / 100) + Number.EPSILON) * 100) / 100
     }
-
-    //% block="Get altitude with %sr and %qnh"
-    //% weight=70
-    //% subcategory="Barometer"
-    /*export function get_altitude(samples: number = 48, qnh: number = 1013.25){
-        let accumulated = 0
-        for(let i = 0; i < samples; i++){
-            basic.pause(1)
-            accumulated += get_pressure()
-        }
-        let average = accumulated / samples
-        return calculate_altitude(average, qnh)
-    }*/
-
-    /*function calculate_altitude(pressure: number, qnh : number){
-        return 44330 * (1 - Math.pow((pressure / 100) / qnh, 1 / 5.257))
-        //((287.058 * ((get_temperature() / 100) + 273.15)) / 9, 80665) * Math.log(pressure / qnh)
-        // 44330 * (1.0 - Math.pow(pressure / qnh, 0.1903))
-        // (Math.pow(qnh / pressure, 1/5.257)-1)*(temperature_in_celsius()+273.15) / 0.0065
-    }*/
 }

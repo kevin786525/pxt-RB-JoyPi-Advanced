@@ -1,8 +1,3 @@
-
-/**
-  * Gyroscope Block
-  */
-//% color="#275C6B" weight=91 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     let mosiPin = DigitalPin.P15;
     let misoPin = DigitalPin.P14;
@@ -27,7 +22,10 @@ namespace JoyPiAdvanced {
         return data;
     }
 
-    //% block="Initialize Gyroscope"
+    /**
+     * Initializsed the gyroscope
+     */
+    //% block="initialize Gyroscope"
     //% weight=100 
     //% subcategory="Gyroscope"
     export function gyroscopeInit() {
@@ -38,7 +36,10 @@ namespace JoyPiAdvanced {
         write(27, 0x18 | tmp);
     }
 
-    //% block="Read temperature"
+    /**
+     * Reasds the ambient temperature from the gyroscope
+     */
+    //% block="gyroscope temperature"
     //% weight=95
     //% subcategory="Gyroscope"
     export function gyroscopeGetTemperature() {
@@ -48,7 +49,10 @@ namespace JoyPiAdvanced {
         return temp / 100;
     }
 
-    //% block="Read X-Axis"
+    /**
+     * Measures the rotation on the X-axis with the gyroscope
+     */
+    //% block="gyroscope X-axis"
     //% weight=90
     //% subcategory="Gyroscope"
     export function gyroscopeGetX() {
@@ -63,7 +67,10 @@ namespace JoyPiAdvanced {
         }
     }
 
-    //% block="Read Y-Axis"
+    /**
+     * Measures the rotation of the Y-axis with the gyroscope
+     */
+    //% block="gyroscope Y-axis"
     //% weight=85
     //% subcategory="Gyroscope"
     export function gyroscopeGetY() {
@@ -78,7 +85,10 @@ namespace JoyPiAdvanced {
         }
     }
 
-    //% block="Read tilt direction"
+    /**
+     * Reads the tilt direction of the gyroscope
+     */
+    //% block="gyroscope tilt direction"
     //% weight=80
     //% subcategory="Gyroscope"
     export function gyroscopeGetTilt() {

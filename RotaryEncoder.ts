@@ -1,15 +1,11 @@
-const enum direction {
-    //% block="Right"
-    clockwise = 2,
-    //% block="Left"
-    counterclockwise = 4
-}
-
-/**
-  * Rotary Encoder block
-  */
-//% color="#275C6B" weight=76 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
+    const enum Direction {
+        //% block="Right"
+        clockwise = 2,
+        //% block="Left"
+        counterclockwise = 4
+    }
+
     const rotaryDTPin = DigitalPin.P2;
     const rotaryCLKPin = DigitalPin.P3;
     const rotarySWPin = DigitalPin.P4;
@@ -36,20 +32,20 @@ namespace JoyPiAdvanced {
             EvCounter += 1;
             if (EvCounter % 2 == 0) { // kill every second Event  
                 if (directionIndicator == 1) {
-                    control.raiseEvent(KYEventID + direction.clockwise, direction.clockwise);
+                    control.raiseEvent(KYEventID + Direction.clockwise, Direction.clockwise);
                 }
                 else {
-                    control.raiseEvent(KYEventID + direction.counterclockwise, direction.counterclockwise);
+                    control.raiseEvent(KYEventID + Direction.counterclockwise, Direction.counterclockwise);
                 }
             }
             lastCLK = currentCLK;
         }
     }
 
-    /*
-  * Function to initialize the Rotary Encoder
-  */
-    //% block="Initialize Rotary Encoder"
+    /** 
+      * Initializes the rotary encoder
+      */
+    //% block="initialize Rotary Encoder"
     //% subcategory="Rotary Encoder"
     //% weight=100
     export function initializeRotaryEncoder() {
@@ -83,23 +79,24 @@ namespace JoyPiAdvanced {
 
     }
 
-    /*
-      * Function to read the Rotary Encoder
+     /**
+      * Event that is executed as soon as the rotary encoder is turned in the corresponding direction
+      * @param direction Direction to be listened to
       */
-    //% block="On encoder turned in direction %direction"
+    //% block="on rotary encoder turned in direction %direction"
     //% subcategory="Rotary Encoder"
     //% weight=100
-    export function onTurned(direction: direction, handler: () => void) {
+    export function rotaryEncoderonTurned(direction: Direction, handler: () => void) {
         control.onEvent(KYEventID + direction, direction, handler);
     }
 
-    /*
-     * Function to read the Rotary Encoder
+    /**
+     * Event that is executed as soon as the rotary encoder is pressed
      */
-    //% block="On encoder pressed"
+    //% block="on rotary encoder pressed"
     //% subcategory="Rotary Encoder"
     //% weight=90
-    export function onPressEvent(handler: () => void) {
+    export function rotaryEncoderonPressEvent(handler: () => void) {
         control.onEvent(pressedID, 0, handler);
 
         // Constantly check the Switch in the background

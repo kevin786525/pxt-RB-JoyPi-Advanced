@@ -85,9 +85,9 @@ Numbers with a length of up to 4 digits can be send to the display. You can addi
 
 ```typescript
 // Show number with colon off
-JoyPiAdvanced.segmentWriteNumber(1234, Colon.Off)
+JoyPiAdvanced.segmentWriteNumber(1234, Colon.off)
 // Show number with colon on
-JoyPiAdvanced.segmentWriteNumber(4321, Colon.On)
+JoyPiAdvanced.segmentWriteNumber(4321, Colon.on)
 ```
 
 ### Clear display
@@ -110,9 +110,9 @@ This ADC is a 12-bit ADC which means that the applied voltage can be converted t
 
 ```typescript
 // Read value on channel no. 0
-JoyPiAdvanced.readValue(0)
+JoyPiAdvanced.adcReadValue(0)
 // Read value on channel no. 3
-JoyPiAdvanced.readValue(3)
+JoyPiAdvanced.adcReadValue(3)
 ```
 
 ### Read voltages
@@ -121,9 +121,9 @@ Instead of values, you can also directly read the raw applied voltage:
 
 ```typescript
 // Read voltage on channel no. 0
-JoyPiAdvanced.readVoltage(0)
+JoyPiAdvanced.adcReadVoltage(0)
 // Read voltage on channel no. 3
-JoyPiAdvanced.readVoltage(3)
+JoyPiAdvanced.adcReadVoltage(3)
 ```
 
 ## Barometer
@@ -423,7 +423,7 @@ The 16x2 display can output texts on a total of 16 characters and over 2 lines. 
 Because the display is an I2C-device, an initial initialization is required before use:
 
 ```typescript
-JoyPiAdvanced.LCD16x2_init()
+JoyPiAdvanced.lcd16x2Init()
 ```
 
 ### Power functions
@@ -432,13 +432,13 @@ The display supports various power functions. These include power on, power off,
 
 ```typescript
 // Turn LCD on
-JoyPiAdvanced.LCD16x2_turnOn()
+JoyPiAdvanced.lcd16x2TurnOn()
 // Turn LCD off
-JoyPiAdvanced.LCD16x2_turnOff()
+JoyPiAdvanced.lcd16x2TurnOff()
 // Turn backlight on
-JoyPiAdvanced.LCD16x2_BacklightOn()
+JoyPiAdvanced.lcd16x2BacklightOn()
 // Turn backlight off
-JoyPiAdvanced.LCD16x2_BacklightOff()
+JoyPiAdvanced.lcd16x2BacklightOff()
 ```
 
 ### Output text
@@ -447,11 +447,11 @@ Text can be send to the display by using the **JoyPiAdvanced.LCD16x2_showText(te
 
 ```typescript
 // Show text at position 0 on line 0
-JoyPiAdvanced.LCD16x2_showText('Hello World', 0, 0)
+JoyPiAdvanced.lcd16x2ShowText('Hello World', 0, 0)
 // Show text at position 2 on line 1
-JoyPiAdvanced.LCD16x2_showText('Hello World', 2, 1)
+JoyPiAdvanced.lcd16x2ShowText('Hello World', 2, 1)
 // Clear output
-JoyPiAdvanced.LCD16x2_clear()
+JoyPiAdvanced.lcd16x2Clear()
 ```
 
 ### Shift text
@@ -460,9 +460,9 @@ The whole output can be shifted to the left and right and can thus be moved over
 
 ```typescript
 // Shift text to the left
-JoyPiAdvanced.LCD16x2_ShiftLeft()
+JoyPiAdvanced.lcd16x2ShiftLeft()
 // Shift text to the right
-JoyPiAdvanced.LCD16x2_ShiftRight()0
+JoyPiAdvanced.lcd16x2ShiftRight()
 ```
 
 ### Cursor functions
@@ -471,13 +471,13 @@ The display also offers the possibility to switch on the current cursor position
 
 ```typescript
 // Show permanent cursor
-JoyPiAdvanced.LCD16x2_ShowCursor()
+JoyPiAdvanced.lcd16x2ShowCursor()
 // Show blinking cursor
-JoyPiAdvanced.LCD16x2_BlinkingCursor()
+JoyPiAdvanced.lcd16x2BlinkingCursor()
 // Move cursor to starting position
-JoyPiAdvanced.LCD16x2_ReturnHome()
+JoyPiAdvanced.lcd16x2ReturnHome()
 // Hide cursor
-JoyPiAdvanced.LCD16x2_HideCursor()
+JoyPiAdvanced.lcd16x2HideCursor()
 ```
 
 ## Light dependent resistor (LDR)
@@ -774,17 +774,17 @@ The rotation of the rotary encoder is not controlled by a single function, but b
 
 ```typescript
 // Respond to clockwise rotation
-JoyPiAdvanced.onTurned(direction.clockwise, function(){
+JoyPiAdvanced.rotaryEncoderonTurned(Direction.clockwise, function(){
     serial.writeLine('Rotary encoder turned clockwise')
 })
 
 // Respond to counterclockwise rotation
-JoyPiAdvanced.onTurned(direction.counterclockwise, function(){
+JoyPiAdvanced.rotaryEncoderonTurned(Direction.counterclockwise, function(){
     serial.writeLine('Rotary encoder turned counterclockwise')
 })
 
 // Respond to button pressed
-JoyPiAdvanced.onPressEvent(function(){
+JoyPiAdvanced.rotaryEncoderonPressEvent(function(){
     serial.writeLine('Button has been pressed')
 })
 ```
@@ -804,9 +804,6 @@ The speed of the servo motor is not adjustable via the function. Instead, the sp
 JoyPiAdvanced.turnMotor(90)
 // Rotate servo motor cto degree angle
 JoyPiAdvanced.turnMotor(120)
-pause(50)
-// Stop motor
-JoyPiAdvanced.stopMotor()
 ```
 
 ## Shock sensor
@@ -839,6 +836,23 @@ You can detect sound via the **JoyPiAdvanced.soundsensorCheck()** function. The 
 JoyPiAdvanced.soundsensorCheck()
 ```
 
+## Stepper motor
+
+The stepper motor is a type of electric motor that moves in precise, fixed increments called steps, allowing for accurate position control. It is commonly used in robotics, 3D printers, and CNC machines for precise motion.
+
+**The stepper motor is connected to P4 (S1), P5 (S2), P6 (S3) and P7 (S4)**
+
+### Rotate stepper motor ###
+
+The stepper motor can be used with the **JoyPiAdvanced.stepperRotate(direction, steps, unit)** function. You can choose if you want to rotate by a number of steps or a number of full rotationF
+
+```typescript
+// Rotate clockwise by 10 steps
+JoyPiAdvanced.stepperRotate(Stepperdirection.clockwise, 10, Stepunit.steps)
+// Rotate counterclockwise by 2 rotations
+JoyPiAdvanced.stepperRotate(Stepperdirection.counterclockwise, 2, Stepunit.rotations)
+```
+
 ## Switches
 
 A switch is a component with which an electrical connection can be closed and opened. The Joy-Pi Advanced has a total of 5 switches.
@@ -847,19 +861,19 @@ A switch is a component with which an electrical connection can be closed and op
 
 ### Check switch setting
 
-The condition of the switches can be checked with the **JoyPiAdvanced.SWCheck(JoyPiSwitch)** function. The function returns true or false.
+The condition of the switches can be checked with the **JoyPiAdvanced.switchCheck(JoyPiSwitch)** function. The function returns true or false.
 
 ```typescript
 // Check switch 1
-JoyPiAdvanced.SWCheck(SWSelection.Switch1)
+JoyPiAdvanced.switchCheck(SWselection.switch1)
 // Check switch 2
-JoyPiAdvanced.SWCheck(SWSelection.Switch2)
+JoyPiAdvanced.switchCheck(SWselection.switch2)
 // Check switch 3
-JoyPiAdvanced.SWCheck(SWSelection.Switch3)
+JoyPiAdvanced.switchCheck(SWselection.switch3)
 // Check switch 4
-JoyPiAdvanced.SWCheck(SWSelection.Switch4)
+JoyPiAdvanced.switchCheck(SWselection.switch4)
 // Check switch 5
-JoyPiAdvanced.SWCheck(SWSelection.Switch5)
+JoyPiAdvanced.switchCheck(SWselection.switch5)
 ```
 
 ## TFT display
@@ -883,40 +897,40 @@ The display can show single pixels, lines, rectangles and circles in addition to
 
 ```typescript
 // Show text at x-y position 20-30 with zoom level 1, font color red and background color black
-JoyPiAdvanced.tftShowString('Hello World', 20, 30, 1, Color.Red, Color.Black)
+JoyPiAdvanced.tftShowString('Hello World', 20, 30, 1, color.red, Color.black)
 // Draw single pixel at x-y position 10-20 with color blue
-JoyPiAdvanced.tftDrawPixel(10, 20, Color.Blue)
+JoyPiAdvanced.tftDrawPixel(10, 20, Color.blue)
 // Draw line from x-y position 10-10 to x-y position 100-80 with color yellow
-JoyPiAdvanced.tftDrawLine(10, 10, 100, 80, Color.Yellow)
+JoyPiAdvanced.tftDrawLine(10, 10, 100, 80, Color.yellow)
 // Draw rectangle at x-y position 10-10 with a width of 50 and a height of 20 in color green
-JoyPiAdvanced.tftDrawRectangle(10, 10, 50, 20, Color.Green)
+JoyPiAdvanced.tftDrawRectangle(10, 10, 50, 20, Color.green)
 // Draw circle at x-y position 50-50 with a radius of 20 in color blue
-JoyPiAdvanced.tftDrawCircle(50, 50, 20, Color.Blue)
+JoyPiAdvanced.tftDrawCircle(50, 50, 20, Color.blue)
 ```
 
 ### Settings
 
 The display supports zoom levels for text from 1 to 5 and supports various predefined colors:
 
-- Color.Black
-- Color.Navy
-- Color.DarkGreen
-- Color.DarkCyan
-- Color.Maroon
-- Color.Purple
-- Color.Olive
-- Color.LightGrey
-- Color.DarkGrey
-- Color.Blue
-- Color.Green
-- Color.Cyan
-- Color.Red
-- Color.Magenta
-- Color.Yellow
-- Color.White
-- Color.Orange
-- Color.GreenYellow
-- Color.Pink
+- color.black
+- color.navy
+- color.darkgreen
+- color.darkcyan
+- color.maroon
+- color.purple
+- color.olive
+- color.lightgrey
+- color.darkgrey
+- color.blue
+- color.green
+- color.cyan
+- color.red
+- color.magenta
+- color.yellow
+- color.white
+- color.orange
+- color.greenyellow
+- color.pink
 
 ### Other functions
 
@@ -996,3 +1010,11 @@ JoyPiAdvanced.vibrationOn()
 // Turn vibration motor off
 JoyPiAdvanced.vibrationOff()
 ```
+
+## Supported targets 
+
+* for PXT/microbit 
+
+## License 
+
+MIT

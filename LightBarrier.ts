@@ -1,7 +1,3 @@
-/**
-  * Light barrier Block
-  */
-//% color="#275C6B" weight=85 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const pinLightBarrier = DigitalPin.P0
     let lastState = false
@@ -33,7 +29,10 @@ namespace JoyPiAdvanced {
     }
   
   
-    //% block="Check light barrier"
+    /**
+     * Checks the current state of the light barrier. True means that the light barrier is triggered. False means that its not triggered.
+     */
+    //% block="check light barrier"
     //% subcategory="Light barrier"
     //% weight=100
     export function lightBarrierIsTriggered(): boolean {
@@ -48,7 +47,10 @@ namespace JoyPiAdvanced {
       }
     }
   
-    //% block="Get RPM"
+    /**
+     * Calculates the current RPM at the light barrier. This is usally combined with the stepper motor.
+     */
+    //% block="light barrier RPM"
     //% subcategory="Light barrier"
     //% weight=90
     export function lightBarrierRPM(): number {

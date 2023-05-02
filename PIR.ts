@@ -1,15 +1,10 @@
-
-/**
-  * PIR Sensor Block
-  */
-//% color="#275C6B" weight=82 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
   const pirPin = DigitalPin.P6;
 
-  /*
-   * Function to set up gyroscope
+  /**
+   * Returns the current state of the PIR sensor. True means that a motion is detected. False means that no motion is detected.
    */
-  //% block="Check for motion"
+  //% block="Check PIR motion"
   //% subcategory="PIR Sensor"
   //% weight=100
   export function pirCheckMotion(){

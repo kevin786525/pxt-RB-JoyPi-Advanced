@@ -2,6 +2,7 @@
     "name": "pxt-rb-joypi-advanced",
     "version": "1.0.0",
     "description": "This package provides an all-in-one library which unites all sensors and modules for the Joy-IT RB-JoyPi-Advanced.",
+    "license": "MIT",
     "dependencies": {
         "core": "*",
         "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.1"

@@ -1,11 +1,12 @@
-/**
-  * EEPROM Block
-  */
-//% color="#275C6B" weight=92 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     let eepromADDR = 0x50;
 
-    //% block="Write %dat to EEPROM address %addr"
+    /**
+     * Writes data to the EEPROM storage
+     * @param data The data that is supposed to be written
+     * @param address The address of the EEPROM where the data is supposed to be stored
+     */
+    //% block="write %dat to EEPROM address %addr"
     //% subcategory="EEPROM"
     //% weight=100
     export function eeepromWrite(data: number, address: number): void {
@@ -17,7 +18,11 @@ namespace JoyPiAdvanced {
         pins.i2cWriteBuffer(eepromADDR, buf)
     }
 
-    //% block="Read byte from EEPROM address %addr"
+    /**
+     * Reads data from the EEPROM storage
+     * @param address The address of the EEPROM where the data is supposed to be read from
+     */
+    //% block="read byte from EEPROM address %addr"
     //% subcategory="EEPROM"
     //% weight=99
     export function eepromRead(address: number): number {

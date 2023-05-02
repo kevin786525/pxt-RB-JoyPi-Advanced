@@ -1,9 +1,3 @@
-
-
-/**
-  * VEML6040 Block
-*/
-//% color="#275C6B" weight=95 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     // Address
     const colorsensorADDR = 0x10
@@ -13,7 +7,10 @@ namespace JoyPiAdvanced {
     const blueChannel = 0x0A
     const whiteChannel = 0x0B
 
-    //% block="Initialize VEML6040"
+    /**
+     * Initializes the color sensor
+     */
+    //% block="initialize color sensor"
     //% subcategory="Color-Sensor"
     //% weight=100
     export function initColorSensor(): void {
@@ -26,15 +23,21 @@ namespace JoyPiAdvanced {
         pins.i2cWriteBuffer(colorsensorADDR, buffer, false)
     }
 
-    //% block="Read red value"
+    /**
+     * Measures the red color component via the color sensor
+     */
+    //% block="color sensor red value"
     //% subcategory="Color-Sensor"
     //% weight=95
-    export function colroSensorGetRed(): number {
+    export function colorSensorGetRed(): number {
         pins.i2cWriteNumber(colorsensorADDR, redChannel, NumberFormat.UInt8LE, true)
         return pins.i2cReadNumber(colorsensorADDR, NumberFormat.UInt16LE, false)
     }
 
-    //% block="Read green value"
+    /**
+     * Measures the green component via the color sensor
+     */
+    //% block="color sensor green value"
     //% subcategory="Color-Sensor"
     //% weight=90
     export function colorSensorGetGreen(): number {
@@ -42,7 +45,10 @@ namespace JoyPiAdvanced {
         return pins.i2cReadNumber(colorsensorADDR, NumberFormat.UInt16LE, false)
     }
 
-    //% block="Read blue value"
+    /**
+     * Measures the blue component via the color sensor
+     */
+    //% block="color sensor blue value"
     //% subcategory="Color-Sensor"
     //% weight=85
     export function colorSensorGetBlue(): number {
@@ -50,7 +56,10 @@ namespace JoyPiAdvanced {
         return pins.i2cReadNumber(colorsensorADDR, NumberFormat.UInt16LE, false)
     }
 
-    //% block="Read white value"
+    /**
+     * Measures the white component via the color sensor
+     */
+    //% block="color sensor white value"
     //% subcategory="Color-Sensor"
     //% weight=80
     export function colorSensorGetWhite(): number {

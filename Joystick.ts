@@ -1,25 +1,30 @@
-/**
-  * Joystick Block
-  */
-//% color="#275C6B" weight=88 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const joystickButtonPin = DigitalPin.P10
   
-    //% block="Get X Value"
+    /**
+     * Returns the current X-value of the joystick
+     */
+    //% block="joystick X value"
     //% subcategory="Joystick"
     //% weight=100
     export function joystickGetXValue(): number {
-      return readValue(0)
+      return adcReadValue(0)
     }
   
-    //% block="Get Y Value"
+    /**
+     * Returns the current Y-value of the joystick
+     */
+    //% block="joystick Y value"
     //% subcategory="Joystick"
     //% weight=90
     export function joystickGetYValue(): number {
-      return readValue(1)
+      return adcReadValue(1)
     }
   
-    //% block="Check button"
+    /**
+     * Checks the current button state of the joystick. True means that the button is pressed. False means that the button is not pressed.
+     */
+    //% block="joystick button state"
     //% subcategory="Joystick"
     //% weight=80
     export function joystickCheckButton(): boolean {

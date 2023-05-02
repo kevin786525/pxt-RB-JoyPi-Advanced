@@ -1,7 +1,3 @@
-/**
-  * MFRC522 Block
-  */
-//% color="#275C6B" weight=78 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const RFIDPIN = DigitalPin.P16
     const TReloadRegL = 0x2D
@@ -517,10 +513,10 @@ namespace JoyPiAdvanced {
         return n
     }
   
-    /*
+    /**
      * Initialize RFID module
      */
-    //% block="Initialize RFID module"
+    //% block="initialize RFID module"
     //% subcategory="MFRC522 RFID"
     //% weight=100
     export function rfidInit() {
@@ -536,10 +532,10 @@ namespace JoyPiAdvanced {
         AntennaON()
     }
   
-    /*
+    /**
      * Read ID from device
      */
-    //% block="Read ID from device"
+    //% block="read ID from RFID device"
     //% subcategory="MFRC522 RFID"
     //% weight=95
     export function rfidReadId(): number {
@@ -553,10 +549,10 @@ namespace JoyPiAdvanced {
         return id
     }
   
-    /*
-     * Read content from device
+    /**
+     * Read content from RFID device
      */
-    //% block="Read data from device"
+    //% block="read data from RFID device"
     //% subcategory="MFRC522 RFID"
     //% weight=90
     export function rfidReadText(): string {
@@ -570,10 +566,11 @@ namespace JoyPiAdvanced {
         return text
     }
   
-    /*
-     * Write to device
+    /**
+     * Write to RFID device
+     * @param text A string that is supposed to be written to the RFID device
      */
-    //% block="Write %text to device"
+    //% block="write %text to RFID device"
     //% subcategory="MFRC522 RFID"
     //% weight=85
     export function rfidWriteText(text: string): void {

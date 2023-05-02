@@ -1,19 +1,18 @@
 /**
-  * Enumeration for On/Off state
-  */
-enum Colon {
-    //% block="On"
-    On,
-    //% block="Off"
-    Off
-  }
-
-
-/**
-  * 7 Segment Display HT16K33 Block
+  * Joy-Pi Advanced: Unleash your creativity with this compact, powerful device! Compatible with Micro:Bit, Raspberry Pi, Arduino & more, it features over 30 stations, lessons and modules, plus a learning hub for continuous improvement and project support.
   */
 //% color="#275C6B" weight=100 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
+    /**
+    * Enumeration for On/Off state
+    */
+    enum Colon {
+        //% block="On"
+        on,
+        //% block="Off"
+        off
+    }
+
     const segmentADDR = 0x70
     const segmentBlinkADDR = 0x80
     const segmentBlinkDisplayOn = 0x01
@@ -38,10 +37,10 @@ namespace JoyPiAdvanced {
         "9": 0b0000000001101111
     }
 
-    /*
-    * Initialize 7-segment display
+    /**
+    * Initialize the 7-segment display
     */
-    //% block="Initialize 7-segment display"
+    //% block="initialize 7-segment display"
     //% subcategory="7-Segment Display"
     //% weight=100
     export function segmentInit(){
@@ -69,10 +68,12 @@ namespace JoyPiAdvanced {
         pins.i2cWriteNumber(segmentADDR, brightnessBuffer, NumberFormat.UInt8BE);
     }
 
-    /*
-     * Write number to display
+    /**
+     * Write a number to the 7-segment display
+     * @param number the number which is supposed to be displayed. Maximum of 4 digits is possible
+     * @param colon whether the colon in the center of the display should be displayed or not
      */
-    //% block="Write number %number on display with colon %colon"
+    //% block="write number %number on 7-segment display with colon %colon"
     //% subcategory="7-Segment Display"
     //% weight=90
     export function segmentWriteNumber(number: number, colon: Colon){
@@ -105,7 +106,7 @@ namespace JoyPiAdvanced {
         let displayBuffer = pins.createBuffer(10);
         displayBuffer[1] = bufferArray[0];
         displayBuffer[3] = bufferArray[1];
-        if(colon == Colon.On){
+        if(colon == Colon.on){
             displayBuffer[5] = 0xFF;
         }
         displayBuffer[7] = bufferArray[2];
@@ -115,10 +116,10 @@ namespace JoyPiAdvanced {
 
     }
 
-    /*
-    * Function to clear the display
+    /**
+    * Clear all outputs on the 7-segment display
     */
-    //% block="Clear 7-segment display"
+    //% block="clear 7-segment display"
     //% subcategory="7-Segment Display"
     //% weight=50
     export function segmentClear() {

@@ -1,15 +1,11 @@
-/**
-  * Sound Sensor Block
-  */
-//% color="#275C6B" weight=72 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const pinSoundSensor = DigitalPin.P9
   
   
-    /*
-     * Check sound sensor
+    /**
+     * Checks the current state of the sound sensor. True means that a sound was detected. False means that no sound was detected.
      */
-    //% block="Check sound sensor"
+    //% block="check sound sensor"
     //% subcategory="Sound sensor"
     //% weight=100
     export function soundsensorCheck(): boolean {

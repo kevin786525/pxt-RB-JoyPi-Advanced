@@ -1,7 +1,3 @@
-/**
-  * Buzzer Block
-  */
-//% color="#275C6B" weight=96 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
   const buzzerPin = AnalogPin.P7
 
@@ -9,7 +5,11 @@ namespace JoyPiAdvanced {
       return (input - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
   }
 
-  //% block="Turn buzzer on with frequency %frequency"
+  /**
+   * Turns on the buzzer with a selectable frequency
+   * @param frequency The frequency can be set from 100 (low pitch) to 20000 (high pitch)
+   */
+  //% block="turn buzzer on with frequency %frequency"
   //% subcategory="Buzzer"
   //% weight=100
   //% frequency.min=100 frequency.max=20000 frequency.defl=100
@@ -19,7 +19,10 @@ namespace JoyPiAdvanced {
     pins.analogSetPeriod(buzzerPin, frequency)
   }
 
-  //% block="Turn buzzer off"
+  /**
+   * Turns the buzzer off
+   */
+  //% block="turn buzzer off"
   //% subcategory="Buzzer"
   //% weight=90
   export function buzzerOff(): void {

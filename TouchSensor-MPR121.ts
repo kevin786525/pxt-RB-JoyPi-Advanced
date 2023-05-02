@@ -1,7 +1,3 @@
-/**
-  * TouchSensor Block
-  */
-//% color="#275C6B" weight=68 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const touchSensorAddr = 0x5A
   
@@ -32,7 +28,10 @@ namespace JoyPiAdvanced {
     }
   
   
-    //% block="Initialize touch sensor"
+    /**
+     * Initializes the touch sensor
+     */
+    //% block="initialize touch sensor"
     //% subcategory="Touch sensor"
     //% weight=100
     export function touchsensorInit(): void {
@@ -49,7 +48,11 @@ namespace JoyPiAdvanced {
       }
     }
   
-    //% block="Check touch sensor %sensorSelection"
+    /**
+     * Checks the current state of the touch sensor. True means that the touch sensor is triggered. False means that the touch sensor is not triggered.
+     * @param sensorSelection The sensor that is supposed to be checked from 1 (upper sensor) to 6 (lower sensor)
+     */
+    //% block="check touch sensor %sensorSelection"
     //% subcategory="Touch sensor"
     //% sensorSelection.min=1 sensorSelection.max=6
     //% weight=90

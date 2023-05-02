@@ -1,8 +1,3 @@
-
-/**
-  * DHT11 Block
-  */
-//% color="#275C6B" weight=94 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const dhtPin = DigitalPin.P8;
     let humidity = 0;
@@ -65,10 +60,10 @@ namespace JoyPiAdvanced {
       }
     }
   
-    /*
+    /**
      * Measure temperature with DHT11
      */
-    //% block="Measure temperature"
+    //% block="DHT11 temperature"
     //% subcategory="DHT11"
     //% weight=100
     export function dht11GetTemperature(): number {
@@ -76,10 +71,10 @@ namespace JoyPiAdvanced {
       return temperature;
     }
   
-    /*
+    /**
      * Measure humidity with DHT11
      */
-    //% block="Measure humidity"
+    //% block="DHT11 humidity"
     //% subcategory="DHT11"
     //% weight=90
     export function dht11GetHumidity(): number {

@@ -1,7 +1,3 @@
-/**
-  * ADC Block
-  */
-//% color="#275C6B" weight=99 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const ADCPIN = DigitalPin.P16
     const SYSTEMSTATUS = 0x00
@@ -52,22 +48,30 @@ namespace JoyPiAdvanced {
   
     }
   
-    //% block="Read value from channel %channel"
+    /**
+     * Reads the value of the analog digital converter on a specified channel
+     * @param channel specifies the channel which is supposed to be read
+     */
+    //% block="ADC value on channel %channel"
     //% subcategory="Analog-Digital Converter"
     //% channel.min=0 channel.max=7
     //% weight=100
-    export function readValue(channel: number): number {
+    export function adcReadValue(channel: number): number {
       return read(channel)
     }
   
-    //% block="Read voltage from channel %channel"
+    /**
+     * Reads a channel on the analog digital converter and converts the value to a voltage number
+     * @param channel specifies the channel which is supposed to be read
+     */
+    //% block="ADC voltage on channel %channel"
     //% subcategory="Analog-Digital Converter"
     //% channel.min=0 channel.max=7
     //% weight=90
-    export function readVoltage(channel: number): number {
+    export function adcReadVoltage(channel: number): number {
       let tempValue = 0
       while(tempValue == 0){
-        tempValue = readValue(channel)
+        tempValue = adcReadValue(channel)
       }
 
       return (tempValue * 5.00/4096.0)

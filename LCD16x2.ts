@@ -1,7 +1,3 @@
-/**
-  * LCD16x2 Block
-  */
-//% color="#275C6B" weight=87 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const i2c_address = 0x21;
     let Backlight: number;
@@ -35,10 +31,13 @@ namespace JoyPiAdvanced {
         set(data << 4);
     }
 
-    //% block="Initialize LCD"
+    /**
+     * Initializes the 16x2 LCD display
+     */
+    //% block="initialize 16x2LCD"
     //% subcategory="LCD16x2"
     //% weight=100
-    export function LCD16x2_init() {
+    export function lcd16x2Init() {
         Backlight = 0x80;
         RegisterSelect = 0x00;
 
@@ -80,16 +79,22 @@ namespace JoyPiAdvanced {
         command(0x0C);
         command(0x28);
         command(0x06);
-        LCD16x2_clear();
+        lcd16x2Clear();
     }
 
 
-    //% block="show String %s|at x %x|y %y"
+    /**
+     * Shows a text on the 16x2 display
+     * @param text The text that is supposed to be displayed
+     * @param x The x position on the display from 0 (most left position) to 15 (most right position)
+     * @param y The y position on the display from 0 (upper line) to 1 (lower line)
+     */
+    //% block="show String %s|at x %x|y %y on 16x2LCD"
     //% subcategory="LCD16x2"
     //% weight=90
     //% x.min=0 x.max=15
     //% y.min=0 y.max=1
-    export function LCD16x2_showText(text: string, x: number, y: number): void {
+    export function lcd16x2ShowText(text: string, x: number, y: number): void {
         let a: number;
 
         if (y > 0) {
@@ -108,85 +113,117 @@ namespace JoyPiAdvanced {
         }
     }
 
-
-    //% block="turn on LCD"
+    /**
+     * Turns the 16x2 LCD display on
+     */
+    //% block="turn on 16x2LCD"
     //% subcategory="LCD16x2"
     //% weight=81
-    export function LCD16x2_turnOn(): void {
+    export function lcd16x2TurnOn(): void {
         command(0x0C);
-        LCD16x2_BacklightOn();
+        lcd16x2BacklightOn();
     }
 
-    //% block="turn off LCD"
+    /**
+     * Turns the 16x2 LCD display off
+     */
+    //% block="turn off 16x2LCD"
     //% subcategory="LCD16x2"
     //% weight=80
-    export function LCD16x2_turnOff(): void {
+    export function lcd16x2TurnOff(): void {
         command(0x08);
-        LCD16x2_BacklightOff();
+        lcd16x2BacklightOff();
     }
 
-    //% block="clear LCD"
+    /**
+     * Clears all outputs on the 16x2 LCD display
+     */
+    //% block="clear 16x2LCD"
     //% subcategory="LCD16x2"
     //% weight=85
-    export function LCD16x2_clear(): void {
+    export function lcd16x2Clear(): void {
         command(0x01);
     }
 
-    //% block="turn on backlight"
+    /**
+     * Turns on the backlight on the 16x2 LCD display
+     */
+    //% block="turn on backlight on 16x2LCD"
     //% subcategory="LCD16x2"
     //% weight=71
-    export function LCD16x2_BacklightOn(): void {
+    export function lcd16x2BacklightOn(): void {
         Backlight = 0x80;
         command(0x00);
     }
 
-    //% block="turn off backlight"
+    /**
+     * Turns off the backlight on the 16x2 LCD display
+     */
+    //% block="turn off backlight on 16x2LCD"
     //% weight=70
     //% subcategory="LCD16x2"
-    export function LCD16x2_BacklightOff(): void {
+    export function lcd16x2BacklightOff(): void {
         Backlight = 0x00;
         command(0x00);
     }
 
-    //% block="shift left"
+    /**
+     * Shifts the current position to the left by 1 position
+     */
+    //% block="shift left on 16x2LCD"
     //% weight=61
     //% subcategory="LCD16x2"
-    export function LCD16x2_ShiftLeft(): void {
+    export function lcd16x2ShiftLeft(): void {
         command(0x18);
     }
 
-    //% block="shift right"
+    /**
+     * Shifts the current position to the right by 1 position
+     */
+    //% block="shift right on 16x2LCD"
     //% weight=60
     //% subcategory="LCD16x2"
-    export function LCD16x2_ShiftRight(): void {
+    export function lcd16x2ShiftRight(): void {
         command(0x1C);
     }
 
-    //% block="show cursor"
+    /**
+     * Shows the cursor on its current position
+     */
+    //% block="show cursor on 16x2LCD"
     //% weight=50
     //% subcategory="LCD16x2"
-    export function LCD16x2_ShowCursor(): void {
+    export function lcd16x2ShowCursor(): void {
         command(0x0E);
     }
 
-    //% block="blinking Cursor"
+    /**
+     * Activates the blinking cursor
+     */
+    //% block="blinking Cursor on 16x2LCD"
     //% weight=40
     //% subcategory="LCD16x2"
-    export function LCD16x2_BlinkingCursor(): void {
+    export function lcd16x2BlinkingCursor(): void {
         command(0x0F);
     }
 
-    //% block="hide cursor"
+    /**
+     * Hides the cursor on its current position
+     */
+    //% block="hide cursor on 16x2LCD"
     //% weight=30
     //% subcategory="LCD16x2"
-    export function LCD16x2_HideCursor(): void {
+    export function lcd16x2HideCursor(): void {
         command(0x0C);
     }
 
-    //% block="sets cursor back"
+    /**
+     * Resets the cursor to its default position
+     */
+    //% block="set cursor back on 16x2LCD"
     //% weight=20
     //% subcategory="LCD16x2"
-    export function LCD16x2_ReturnHome(): void {
+    export function lcd16x2ReturnHome(): void {
         command(0x02);
     }
 }

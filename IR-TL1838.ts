@@ -1,7 +1,3 @@
-/**
-  * Infrared Block
-  */
-//% color="#275C6B" weight=89 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const IRADDR = DigitalPin.P0
     const IR_REPEAT = 256
@@ -123,7 +119,10 @@ namespace JoyPiAdvanced {
         return hex;
     }
 
-    //% block="Initialize IR Receiver"
+    /**
+     * Initializes the IR receiver
+     */
+    //% block="initialize IR Receiver"
     //% subcategory="IR Receiver"
     //% weight=100
     export function initIrReceiver(): void {
@@ -131,6 +130,9 @@ namespace JoyPiAdvanced {
         enableIrMarkSpaceDetection(IRADDR);
     }
 
+    /**
+     * Returns the corresponding code as soon as an IR signal is received by the sensor
+     */
     //% block="IR button"
     //% subcategory="IR Receiver"
     //% weight=95

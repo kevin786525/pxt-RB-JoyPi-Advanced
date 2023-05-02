@@ -1,52 +1,49 @@
-/**
- * Colors
- */
-enum Color {
-    //% block="Black"
-    Black = 0x000F,
-    //% block="Navy"
-    Navy = 0x8000, 
-    //% block="DarkGreen"
-    DarkGreen = 0x0A00,
-    //% block="DarkCyan"
-    DarkCyan = 0x530F,
-    //% block="Maroon"
-    Maroon = 0x3270,
-    //% block="Purple"
-    Purple = 0x906F,
-    //% block="Olive"
-    Olive = 0x030F, 
-    //% block="LightGrey"
-    LightGrey = 0x330,
-    //% block="DarkGrey"
-    DarkGrey = 0x0007,
-    //% block="Blue"
-    Blue = 0xF00F,
-    //% block="Green"
-    Green = 0x0F0F,
-    //% block="Cyan"
-    Cyan = 0xFF0F,
-    //% block="Red"
-    Red = 0x00FF,
-    //% block="Magenta"
-    Magenta = 0x80FF,
-    //% block="Yellow"
-    Yellow = 0x0FFF,
-    //% block="White"
-    White = 0xFFFF,
-    //% block="Orange"
-    Orange = 0x02FF,
-    //% block="GreenYellow"
-    GreenYellow = 0x0FCF,
-    //% block="Pink"
-    Pink = 0xF0FF
- }
- 
- /**
-   * RB-TFT1.8-V2 Block
-   */
- //% color="#275C6B" weight=69 icon="\uf109" block="JoyPi Advanced"
   namespace JoyPiAdvanced {
+    /**
+      * Colors
+      */
+     enum Color {
+        //% block="Black"
+        black = 0x000F,
+        //% block="Navy"
+        navy = 0x8000, 
+        //% block="DarkGreen"
+        darkgreen = 0x0A00,
+        //% block="DarkCyan"
+        darkcyan = 0x530F,
+        //% block="Maroon"
+        maroon = 0x3270,
+        //% block="Purple"
+        purple = 0x906F,
+        //% block="Olive"
+        olive = 0x030F, 
+        //% block="LightGrey"
+        lightGrey = 0x330,
+        //% block="DarkGrey"
+        darkGrey = 0x0007,
+        //% block="Blue"
+        blue = 0xF00F,
+        //% block="Green"
+        green = 0x0F0F,
+        //% block="Cyan"
+        cyan = 0xFF0F,
+        //% block="Red"
+        red = 0x00FF,
+        //% block="Magenta"
+        magenta = 0x80FF,
+        //% block="Yellow"
+        yellow = 0x0FFF,
+        //% block="White"
+        white = 0xFFFF,
+        //% block="Orange"
+        orange = 0x02FF,
+        //% block="GreenYellow"
+        greenyellow = 0x0FCF,
+        //% block="Pink"
+        pink = 0xF0FF
+    }
+
+
       // Display commands & constants
       const xOffset = 2;
       const yOffset = 1;
@@ -165,10 +162,10 @@ enum Color {
           pins.digitalWritePin(DCPIN, 0) // command/data = command
       }
  
-      /*
-       * Initial TFT setup
+      /**
+       * Initializes the TFT display
        */
-      //% block="Initialize TFT Display"
+      //% block="initialize TFT Display"
       //% subcategory="TFT1.8"
       //% weight=100
       export function tftInit(): void {
@@ -218,10 +215,13 @@ enum Color {
           send(TFTCommands.DISPON, [])
       }
  
-      /*
-       * Draw single pixel
+      /**
+       * Draws a single pixel on the TFT
+       * @param x X position of the pixel
+       * @param y Y position of the pixel
+       * @param color Color of the pixel
        */
-      //% block="Draw single pixel at x:%x|y:%y with color:%color"
+      //% block="draw single pixel on TFT at x:%x|y:%y with color:%color"
       //% subcategory="TFT1.8"
       //% x.min=1 x.max=130
       //% y.min=1 y.max=162
@@ -231,8 +231,13 @@ enum Color {
           send(TFTCommands.RAMWR, [color >> 8, color])
       }
  
-      /*
-       * Draw a straight line from one point to another
+      /**
+       * Draws a straight line on the TFT
+       * @param x0 X coordinate of the start point
+       * @param y0 Y coordinate of the start point
+       * @param x1 X coordinate of the end point
+       * @param y1 Y coordinate of the end point
+       * @param color Color of the line
        */
       //% block="Draw line from x0:%x0|y0:%y0 to x1:%x1|y:%y1 with color:%color"
       //% subcategory="TFT1.8"
@@ -271,10 +276,15 @@ enum Color {
           }
       }
  
-      /*
-       * Draw rectangle with a given color
+      /**
+       * Draws a rectangle on the TFT
+       * @param x X coordinate of the start point
+       * @param y Y coordinate of the start point
+       * @param width width of the rectangle
+       * @param height height of the rectangle
+       * @param color color of the rectangle
        */
-      //% block="Draw rectangle at x:%x|y:%y with width:%width|height:%height|color:%color"
+      //% block="draw rectangle on TFT at x:%x|y:%y with width:%width|height:%height|color:%color"
       //% subcategory="TFT1.8"
       //% x.min=1 x.max=130
       //% y.min=1 y.max=162
@@ -299,10 +309,14 @@ enum Color {
          exitDataMode()
       }
  
-      /*
-       * Draw circle with a given radius
+      /**
+       * Draws a circle on the TFT
+       * @param x X coordinate of the circle center point
+       * @param y Y coordinate of the circle center point
+       * @param radius Radius of the circle
+       * @param color Color of the circle
        */
-      //% block="Draw circle at: x:%x|y:%y with radius:%r and color:%color"
+      //% block="draw circle on TFT at: x:%x|y:%y with radius:%r and color:%color"
       //% subcategory="TFT1.8"
       //% x.min=1 x.max=130
       //% y.min=1 y.max=162
@@ -320,10 +334,16 @@ enum Color {
          }
       }
  
-      /*
-       * Display string at given coordinates
+      /**
+       * Write a text on the TFT
+       * @param text String that is supposed to be written
+       * @param x X coordinate of the start point
+       * @param y Y coordinate of the start point
+       * @param zoom Zoom level of the text from 1 (small text) to 5 (large text)
+       * @param color Color of the text
+       * @param bgColor Background color of the text
        */
-       //% block="Show string:%string at x:%x and y:%y with zoom-level:%zoom color:%color and background color:%bgcolor"
+       //% block="show string:%string on TFT at x:%x and y:%y with zoom-level:%zoom color:%color and background color:%bgcolor"
        //% subcategory="TFT1.8"
        //% weight=70
        //% x.min=1 x.max=130
@@ -393,21 +413,30 @@ enum Color {
            }
        }
  
-      //% block="Clear screen"
+      /**
+       * Clears all outputs on the TFT
+       */
+      //% block="clear TFT screen"
       //% subcategory="TFT1.8"
       //% weight=65
       export function tftClear(): void {
           tftDrawRectangle(0, 0, TFTWIDTH, TFTHEIGHT, 0)
       }
  
-      //% block="Turn display off"
+      /**
+       * Turns the TFT off
+       */
+      //% block="turn TFT display off"
       //% subcategory="TFT1.8"
       //% weight=60
       export function tftOff(): void {
           send(TFTCommands.DISPOFF, [])
       }
  
-      //% block="Turn display on"
+      /**
+       * Turns the TFT on
+       */
+      //% block="turn TFT display on"
       //% subcategory="TFT1.8"
       //% weight=55
       export function tftOn(): void {

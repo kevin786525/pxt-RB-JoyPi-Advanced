@@ -1,11 +1,11 @@
-/**
-  * PWM Fan Block
-  */
-//% color="#275C6B" weight=80 icon="\uf109" block="JoyPi Advanced"
 namespace JoyPiAdvanced {
     const pwmfanPin = AnalogPin.P7
   
-    //% block="Set fan speed to %speed"
+    /**
+     * Sets the speed of the PWM fan. Please note that the PWM fan needs to be in PWM mode.
+     * @param speed The speed in percentage from 0 (off) to 100 (full speed)
+     */
+    //% block="set fan speed to %speed"
     //% subcategory="PWM Fan"
     //% weight=100
     //% speed.min=0 speed.max=100
