@@ -1,8 +1,7 @@
-  namespace JoyPiAdvanced {
     /**
       * Colors
       */
-     enum Color {
+    enum Color {
         //% block="Black"
         black = 0x000F,
         //% block="Navy"
@@ -42,8 +41,8 @@
         //% block="Pink"
         pink = 0xF0FF
     }
-
-
+      
+  namespace JoyPiAdvanced {
       // Display commands & constants
       const xOffset = 2;
       const yOffset = 1;
