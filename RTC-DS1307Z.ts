@@ -45,6 +45,7 @@ namespace JoyPiAdvanced {
      * @param second The current second
      */
     //% block="set RTC year %year | month %month | day %day | weekday %weekday | hour %hour | minute %minute | second %second"
+    //% inlineInputMode=inline
     //% subcategory="RTC"
     //% weight=98
     export function rtcSetDateTime(year: number, month: number, day:number, weekday: number, hour: number, minute: number, second: number): void {

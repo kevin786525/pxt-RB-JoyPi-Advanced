@@ -163,7 +163,7 @@
   "JoyPiAdvanced.tftDrawPixel|param|y": "Y-Position des Pixels",
   "JoyPiAdvanced.tftDrawRectangle": "Zeichnet ein Rechteck auf dem TFT",
   "JoyPiAdvanced.tftDrawRectangle|param|color": "Farbe des Rechteckes",
-  "JoyPiAdvanced.tftDrawRectangle|param|height": "Höhe des Rechtecks": "Höhe des Rechtecks",
+  "JoyPiAdvanced.tftDrawRectangle|param|height": "Höhe des Rechtecks",
   "JoyPiAdvanced.tftDrawRectangle|param|width": "Breite des Rechtecks",
   "JoyPiAdvanced.tftDrawRectangle|param|x": "X-Koordinate des Startpunktes",
   "JoyPiAdvanced.tftDrawRectangle|param|y": "Y-Koordinate des Startpunktes",
