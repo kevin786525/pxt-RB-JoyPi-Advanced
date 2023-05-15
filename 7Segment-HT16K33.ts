@@ -5,7 +5,7 @@
     /**
     * Enumeration for On/Off state
     */
-    enum Colon {
+    enum JoyPiAdvancedColon {
         //% block="On"
         on,
         //% block="Off"
@@ -73,12 +73,12 @@ namespace JoyPiAdvanced {
     /**
      * Write a number to the 7-segment display
      * @param number the number which is supposed to be displayed. Maximum of 4 digits is possible
-     * @param colon whether the colon in the center of the display should be displayed or not
+     * @param JoyPiAdvancedColon whether the colon in the center of the display should be displayed or not
      */
-    //% block="write number %number on 7-segment display with colon %colon"
+    //% block="write number %number on 7-segment display with colon %JoyPiAdvancedColon"
     //% subcategory="7-Segment Display"
     //% weight=90
-    export function segmentWriteNumber(number: number, colon: Colon){
+    export function segmentWriteNumber(number: number, colon: JoyPiAdvancedColon){
         let bufferArray: Array<NumberFormat.UInt16BE> = [];
         let valueString = number.toString();
 
@@ -108,7 +108,7 @@ namespace JoyPiAdvanced {
         let displayBuffer = pins.createBuffer(10);
         displayBuffer[1] = bufferArray[0];
         displayBuffer[3] = bufferArray[1];
-        if(colon == Colon.on){
+        if(colon == JoyPiAdvancedColon.on){
             displayBuffer[5] = 0xFF;
         }
         displayBuffer[7] = bufferArray[2];

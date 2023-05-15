@@ -1,17 +1,17 @@
-  namespace JoyPiAdvanced {
-    enum SWselection {
-      //% block="Switch1"
-      switch1,
-      //%block="Switch2"
-      switch2,
-      //%block="Switch3"
-      switch3,
-      //%block="Switch4"
-      switch4,
-      //%block="Switch5"
-      switch5
-    }
+enum JoyPiAdvancedSWSeelection {
+  //% block="Switch1"
+  switch1,
+  //%block="Switch2"
+  switch2,
+  //%block="Switch3"
+  switch3,
+  //%block="Switch4"
+  switch4,
+  //%block="Switch5"
+  switch5
+}
 
+namespace JoyPiAdvanced {
     const sw1 = DigitalPin.P2
     const sw2 = DigitalPin.P3
     const sw3 = DigitalPin.P4
@@ -25,24 +25,24 @@
     //% block="check switch %switch"
     //% subcategory="Switches"
     //% weight=100
-    export function switchCheck(JoyPiSwitch: SWselection): boolean {
+    export function switchCheck(JoyPiSwitch: JoyPiAdvancedSWSeelection): boolean {
       let selection  
   
-      if(JoyPiSwitch == SWselection.switch1) {
+      if(JoyPiSwitch == JoyPiAdvancedSWSeelection.switch1) {
         selection = sw1
       }
-      else if(JoyPiSwitch == SWselection.switch2) {
+      else if(JoyPiSwitch == JoyPiAdvancedSWSeelection.switch2) {
         selection = sw2
         led.enable(false)
       }
-      else if(JoyPiSwitch == SWselection.switch3) {
+      else if(JoyPiSwitch == JoyPiAdvancedSWSeelection.switch3) {
         selection = sw3
         led.enable(false)
       }
-      else if(JoyPiSwitch == SWselection.switch4) {
+      else if(JoyPiSwitch == JoyPiAdvancedSWSeelection.switch4) {
         selection = sw4
       }
-      else if(JoyPiSwitch == SWselection.switch5) {
+      else if(JoyPiSwitch == JoyPiAdvancedSWSeelection.switch5) {
         selection = sw5
         led.enable(false)
       }

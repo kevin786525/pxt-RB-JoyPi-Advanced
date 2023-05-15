@@ -1,11 +1,11 @@
-namespace JoyPiAdvanced {
-    const enum Direction {
-        //% block="Right"
-        clockwise = 2,
-        //% block="Left"
-        counterclockwise = 4
-    }
+const enum JoyPiAdvancedDirection {
+    //% block="Right"
+    clockwise = 2,
+    //% block="Left"
+    counterclockwise = 4
+}
 
+namespace JoyPiAdvanced {
     const rotaryDTPin = DigitalPin.P2;
     const rotaryCLKPin = DigitalPin.P3;
     const rotarySWPin = DigitalPin.P4;
@@ -32,10 +32,10 @@ namespace JoyPiAdvanced {
             EvCounter += 1;
             if (EvCounter % 2 == 0) { // kill every second Event  
                 if (directionIndicator == 1) {
-                    control.raiseEvent(KYEventID + Direction.clockwise, Direction.clockwise);
+                    control.raiseEvent(KYEventID + JoyPiAdvancedDirection .clockwise, JoyPiAdvancedDirection .clockwise);
                 }
                 else {
-                    control.raiseEvent(KYEventID + Direction.counterclockwise, Direction.counterclockwise);
+                    control.raiseEvent(KYEventID + JoyPiAdvancedDirection .counterclockwise, JoyPiAdvancedDirection .counterclockwise);
                 }
             }
             lastCLK = currentCLK;
@@ -81,12 +81,12 @@ namespace JoyPiAdvanced {
 
      /**
       * Event that is executed as soon as the rotary encoder is turned in the corresponding direction
-      * @param direction Direction to be listened to
+      * @param JoyPiAdvancedDirection  Direction to be listened to
       */
     //% block="on rotary encoder turned in direction %direction"
     //% subcategory="Rotary Encoder"
     //% weight=100
-    export function rotaryEncoderonTurned(direction: Direction, handler: () => void) {
+    export function rotaryEncoderonTurned(direction: JoyPiAdvancedDirection , handler: () => void) {
         control.onEvent(KYEventID + direction, direction, handler);
     }
 

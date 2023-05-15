@@ -1,5 +1,4 @@
 {
-  "JoyPiAdvanced": "Joy-Pi Advanced: Entfesseln Sie Ihre Kreativität mit diesem kompakten, leistungsstarken Gerät! Kompatibel mit Micro:Bit, Raspberry Pi, Arduino & mehr, bietet es über 30 Stationen, Lektionen und Module sowie einen Lern-Hub für kontinuierliche Verbesserung und Projektunterstützung.",
   "JoyPiAdvanced.adcReadValue": "Liest den Wert des Analog-Digital-Wandlers auf einem bestimmten Kanal",
   "JoyPiAdvanced.adcReadValue|param|channel": "gibt den Kanal an, der gelesen werden soll",
   "JoyPiAdvanced.adcReadVoltage": "Liest einen Kanal am Analog-Digital-Wandler und wandelt den Wert in eine Spannungszahl um",
@@ -183,5 +182,7 @@
   "JoyPiAdvanced.turnMotor": "Dreht den Servomotor um einen bestimmten Winkel",
   "JoyPiAdvanced.turnMotor|param|degrees": "Die Winkelposition, die angefahren werden soll, von 0 (ganz links) bis 180 (ganz rechts)",
   "JoyPiAdvanced.vibrationOff": "Schaltet den Vibrationsmotor aus",
-  "JoyPiAdvanced.vibrationOn": "Schaltet den Vibrationsmotor ein"
+  "JoyPiAdvanced.vibrationOn": "Schaltet den Vibrationsmotor ein",
+  "JoyPiAdvancedColon": "Zustand des Doppelpunktes",
+  "JoyPiAdvancedTFTColor": "Farben"
 }

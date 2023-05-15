@@ -1,5 +1,4 @@
 {
-  "JoyPiAdvanced": "Joy-Pi Advanced: Unleash your creativity with this compact, powerful device! Compatible with Micro:Bit, Raspberry Pi, Arduino & more, it features over 30 stations, lessons and modules, plus a learning hub for continuous improvement and project support.",
   "JoyPiAdvanced.adcReadValue": "Reads the value of the analog digital converter on a specified channel",
   "JoyPiAdvanced.adcReadValue|param|channel": "specifies the channel which is supposed to be read",
   "JoyPiAdvanced.adcReadVoltage": "Reads a channel on the analog digital converter and converts the value to a voltage number",
@@ -93,7 +92,7 @@
   "JoyPiAdvanced.pwmSetSpeed": "Sets the speed of the PWM fan. Please note that the PWM fan needs to be in PWM mode.",
   "JoyPiAdvanced.pwmSetSpeed|param|speed": "The speed in percentage from 0 (off) to 100 (full speed)",
   "JoyPiAdvanced.readDS18B20": "Measures temperature with the DS18B20 sensor. Please note that this is an external sensor that needs to be connected first!",
-  "JoyPiAdvanced.relayOff": "Turn relay off",
+  "JoyPiAdvanced.relayOff": "Turn relay on",
   "JoyPiAdvanced.relayOn": "Turn relay off",
   "JoyPiAdvanced.rfidInit": "Initialize RFID module",
   "JoyPiAdvanced.rfidReadId": "Read ID from device",
@@ -102,7 +101,6 @@
   "JoyPiAdvanced.rfidWriteText|param|text": "A string that is supposed to be written to the RFID device",
   "JoyPiAdvanced.rotaryEncoderonPressEvent": "Event that is executed as soon as the rotary encoder is pressed",
   "JoyPiAdvanced.rotaryEncoderonTurned": "Event that is executed as soon as the rotary encoder is turned in the corresponding direction",
-  "JoyPiAdvanced.rotaryEncoderonTurned|param|direction": "Direction to be listened to",
   "JoyPiAdvanced.rtcGetDay": "Reads the current day from the RTC",
   "JoyPiAdvanced.rtcGetHour": "Reads the current hour from the RTC",
   "JoyPiAdvanced.rtcGetMinute": "Reads the current minute from the RTC",
@@ -135,7 +133,6 @@
   "JoyPiAdvanced.segmentClear": "Clear all outputs on the 7-segment display",
   "JoyPiAdvanced.segmentInit": "Initialize the 7-segment display",
   "JoyPiAdvanced.segmentWriteNumber": "Write a number to the 7-segment display",
-  "JoyPiAdvanced.segmentWriteNumber|param|colon": "whether the colon in the center of the display should be displayed or not",
   "JoyPiAdvanced.segmentWriteNumber|param|number": "the number which is supposed to be displayed. Maximum of 4 digits is possible",
   "JoyPiAdvanced.shocksensorCheck": "Reads the current state of the shock sensor. True means that a shock was recognized. False means that no shock was recognized.",
   "JoyPiAdvanced.soundsensorCheck": "Checks the current state of the sound sensor. True means that a sound was detected. False means that no sound was detected.",
@@ -183,5 +180,7 @@
   "JoyPiAdvanced.turnMotor": "Rotates the servo motor to a specified angle",
   "JoyPiAdvanced.turnMotor|param|degrees": "The angle position which is supposed to be driven from 0 (most left) to 180 (most right)",
   "JoyPiAdvanced.vibrationOff": "Turns the vibration motor off",
-  "JoyPiAdvanced.vibrationOn": "Turns the vibration motor on"
+  "JoyPiAdvanced.vibrationOn": "Turns the vibration motor on",
+  "JoyPiAdvancedColon": "Joy-Pi Advanced: Unleash your creativity with this compact, powerful device! Compatible with Micro:Bit, Raspberry Pi, Arduino & more, it features over 30 stations, lessons and modules, plus a learning hub for continuous improvement and project support.\r\n\r\nEnumeration for On/Off state",
+  "JoyPiAdvancedTFTColor": "Colors"
 }

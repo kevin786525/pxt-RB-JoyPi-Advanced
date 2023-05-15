@@ -1,18 +1,18 @@
+enum JoyPiAdvancedStepunit {
+  //% block="steps"
+  steps,
+  //% block="rotations"
+  rotations
+}
+
+enum JoypiAdvancedStepperDirection {
+  //% block="Clockwise"
+  clockwise,
+  //% block="Counterclockwise"
+  counterclockwise
+}
+
 namespace JoyPiAdvanced {
-    enum Stepunit {
-      //% block="steps"
-      steps,
-      //% block="rotations"
-      rotations
-    }
-
-    enum Stepperdirection {
-      //% block="Clockwise"
-      clockwise,
-      //% block="Counterclockwise"
-      counterclockwise
-    }
-
     const STEPPERPIN1 = DigitalPin.P4
     const STEPPERPIN2 = DigitalPin.P5
     const STEPPERPIN3 = DigitalPin.P6
@@ -67,17 +67,17 @@ namespace JoyPiAdvanced {
      * @param steps The amount the motor is supposed to turn
      * @param unit The unit the motor is suppoed to turn (steps or full rotations)
      */
-    //% block="rotate stepper %stepperdirection for %steps | %unit"
+    //% block="rotate stepper %JoypiAdvancedStepperDirection for %steps | %unit"
     //% subcategory="Stepper motor"
     //% weight=100
-    export function stepperRotate(direction: Stepperdirection, steps: number, unit: Stepunit): void {
+    export function stepperRotate(direction: JoypiAdvancedStepperDirection, steps: number, unit: JoyPiAdvancedStepunit): void {
       switch(unit) {
-        case Stepunit.rotations: steps = steps * 2056
-        case Stepunit.steps: steps = steps
+        case JoyPiAdvancedStepunit.rotations: steps = steps * 2056
+        case JoyPiAdvancedStepunit.steps: steps = steps
       }
   
       for(let i = 0 ; i < steps ; i++) {
-        if(direction == Stepperdirection.clockwise){
+        if(direction == JoypiAdvancedStepperDirection.clockwise){
           moveStep(1)
           basic.pause(1)
         }

@@ -1,7 +1,7 @@
     /**
       * Colors
       */
-    enum Color {
+    enum JoyPiAdvancedTFTColor {
         //% block="Black"
         black = 0x000F,
         //% block="Navy"
@@ -220,12 +220,12 @@
        * @param y Y position of the pixel
        * @param color Color of the pixel
        */
-      //% block="draw single pixel on TFT at x:%x|y:%y with color:%color"
+      //% block="draw single pixel on TFT at x:%x|y:%y with color:%JoyPiAdvancedTFTColor"
       //% subcategory="TFT1.8"
       //% x.min=1 x.max=130
       //% y.min=1 y.max=162
       //% weight=90
-      export function tftDrawPixel(x: number, y: number, color: Color): void {
+      export function tftDrawPixel(x: number, y: number, color: JoyPiAdvancedTFTColor): void {
           setWindow(x + xOffset, y + yOffset, x+1, y+1)
           send(TFTCommands.RAMWR, [color >> 8, color])
       }
@@ -238,14 +238,14 @@
        * @param y1 Y coordinate of the end point
        * @param color Color of the line
        */
-      //% block="Draw line from x0:%x0|y0:%y0 to x1:%x1|y:%y1 with color:%color"
+      //% block="Draw line from x0:%x0|y0:%y0 to x1:%x1|y:%y1 with color:%JoyPiAdvancedTFTColor"
       //% subcategory="TFT1.8"
       //% x0.min=1 x0.max=130
       //% y0.min=1 y0.max=162
       //% x1.min=1 x1.max=130
       //% y1.min=1 y1.max=162
       //% weight=85
-      export function tftDrawLine(x0: number, y0: number, x1: number, y1: number, color: Color): void {
+      export function tftDrawLine(x0: number, y0: number, x1: number, y1: number, color: JoyPiAdvancedTFTColor): void {
           let xDelta = x1 - x0
           let yDelta = y1 - y0
  
@@ -283,12 +283,12 @@
        * @param height height of the rectangle
        * @param color color of the rectangle
        */
-      //% block="draw rectangle on TFT at x:%x|y:%y with width:%width|height:%height|color:%color"
+      //% block="draw rectangle on TFT at x:%x|y:%y with width:%width|height:%height|color:%JoyPiAdvancedTFTColor"
       //% subcategory="TFT1.8"
       //% x.min=1 x.max=130
       //% y.min=1 y.max=162
       //% weight=80
-      export function tftDrawRectangle(x: number, y: number, width: number, height: number, color: Color): void {
+      export function tftDrawRectangle(x: number, y: number, width: number, height: number, color: JoyPiAdvancedTFTColor): void {
  
          // Convert color
          let hiColor = (color >> 8) % 256
@@ -320,7 +320,7 @@
       //% x.min=1 x.max=130
       //% y.min=1 y.max=162
       //% weight=75
-      export function tftDrawCircle(x: number, y: number, radius: number, color: Color): void {
+      export function tftDrawCircle(x: number, y: number, radius: number, color: JoyPiAdvancedTFTColor): void {
          for(let y1 = -radius ; y1 <= 0 ; y1++) {
              for(let x1 = -radius ; x1 <= 0 ; x1++) {
                  if((x1 * x1 + y1 * y1) <= (radius * radius)) {
@@ -348,7 +348,7 @@
        //% x.min=1 x.max=130
        //% y.min=1 y.max=162
        //% zoom.min=1 zoom.max=5
-       export function tftShowString(text: string, x: number, y:number, zoom: number, color: Color, bgColor: Color): void {
+       export function tftShowString(text: string, x: number, y:number, zoom: number, color: JoyPiAdvancedTFTColor, bgColor: JoyPiAdvancedTFTColor): void {
            let hiColor = (color >> 8) % 256
            let loColor = color % 256
            let bgHiColor = (bgColor >> 8) % 256
