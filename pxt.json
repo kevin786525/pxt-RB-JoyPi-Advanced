@@ -14,6 +14,7 @@
         "_locales/en/pxt-rb-joypi-advanced-jsdoc-strings.json",
         "_locales/en/pxt-rb-joypi-advanced-strings.json",
         "7Segment-HT16K33.ts",
+        "ADC-TLA2518.cpp",
         "ADC-TLA2518.ts",
         "Barometer-MS5607.ts",
         "ButtonMatrix.ts",
