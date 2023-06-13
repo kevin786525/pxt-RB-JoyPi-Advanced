@@ -9,7 +9,7 @@ namespace JoyPiAdvanced {
     //% block="write %dat to EEPROM address %addr"
     //% subcategory="EEPROM"
     //% weight=100
-    export function eeepromWrite(data: number, address: number): void {
+    export function eepromWrite(data: number, address: number): void {
         let buf = pins.createBuffer(3);
 
         buf[0] = address >> 8;

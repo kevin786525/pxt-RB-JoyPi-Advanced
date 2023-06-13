@@ -21,6 +21,7 @@ namespace JoyPiAdvanced {
     let state = 0
   
     function moveStep(direction: number) {
+      led.enable(false)
       if (state == 0) {
         pins.digitalWritePin(STEPPERPIN1, 0)
         pins.digitalWritePin(STEPPERPIN2, 0)

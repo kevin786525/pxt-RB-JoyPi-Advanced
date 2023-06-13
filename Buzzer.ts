@@ -14,6 +14,7 @@ namespace JoyPiAdvanced {
   //% weight=100
   //% frequency.min=100 frequency.max=20000 frequency.defl=100
   export function buzzerOn(frequency: number): void {
+    led.enable(false)
     frequency = scale(frequency, 100, 20000, 20000, 100);
     pins.analogWritePin(buzzerPin, 512)
     pins.analogSetPeriod(buzzerPin, frequency)
@@ -26,6 +27,7 @@ namespace JoyPiAdvanced {
   //% subcategory="Buzzer"
   //% weight=90
   export function buzzerOff(): void {
+    led.enable(false)
     pins.analogWritePin(buzzerPin, 0)
   }
 

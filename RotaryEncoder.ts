@@ -97,19 +97,8 @@ namespace JoyPiAdvanced {
     //% subcategory="Rotary Encoder"
     //% weight=90
     export function rotaryEncoderonPressEvent(handler: () => void) {
-        control.onEvent(pressedID, 0, handler);
-
-        // Constantly check the Switch in the background
-        control.inBackground(() => {
-            while (true) {
-                const pressed = pins.digitalReadPin(rotarySWPin);
-                if (pressed != lastPressed) {
-                    lastPressed = pressed;
-                    if (pressed == 0) {
-                        control.raiseEvent(pressedID, 0);
-                    }
-                }
-            }
+        pins.onPulsed(rotarySWPin, PulseValue.Low, function () {
+            handler()
         })
     }
 

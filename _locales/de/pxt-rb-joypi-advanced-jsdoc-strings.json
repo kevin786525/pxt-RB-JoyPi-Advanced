@@ -93,7 +93,7 @@
   "JoyPiAdvanced.pwmSetSpeed|param|speed": "Die Geschwindigkeit in Prozent von 0 (aus) bis 100 (volle Geschwindigkeit)",
   "JoyPiAdvanced.readDS18B20": "Misst die Temperatur mit dem Sensor DS18B20. Bitte beachten Sie, dass es sich um einen externen Sensor handelt, der zuerst angeschlossen werden muss!",
   "JoyPiAdvanced.relayOff": "Relais ausschalten",
-  "JoyPiAdvanced.relayOn": "Relais ausschalten",
+  "JoyPiAdvanced.relayOn": "Relais einschalten",
   "JoyPiAdvanced.rfidInit": "Initialisierung des RFID-Moduls",
   "JoyPiAdvanced.rfidReadId": "ID vom RFID-Gerät lesen",
   "JoyPiAdvanced.rfidReadText": "Lesen von Inhalten aus dem RFID-Gerät",

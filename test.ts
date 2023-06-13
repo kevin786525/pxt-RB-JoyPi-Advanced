@@ -1,6 +1,6 @@
 // Show "1234" on 7-segment display, then clear display
 JoyPiAdvanced.segmentInit()
-JoyPiAdvanced.segmentWriteNumber(1234, Colon.off)
+JoyPiAdvanced.segmentWriteNumber(1234, JoyPiAdvancedColon.off)
 JoyPiAdvanced.segmentClear()
 
 // Read ADC value and voltage from channel 1
@@ -96,14 +96,14 @@ JoyPiAdvanced.turnMotor(90)
 let shocksensorIsTriggered = JoyPiAdvanced.shocksensorCheck()
 
 // Turn stepper motor clockwise by 10 steps
-JoyPiAdvanced.stepperRotate(Stepperdirection.clockwise, 10, Stepunit.steps)
+JoyPiAdvanced.stepperRotate(JoypiAdvancedStepperDirection.clockwise, 10, JoyPiAdvancedStepunit.steps)
 
 // Check state of switch no. 2
-let switchState = JoyPiAdvanced.switchCheck(SWselection.switch2)
+let switchState = JoyPiAdvanced.switchCheck(JoyPiAdvancedSWSeelection.switch2)
 
 // Show blue rectangle on TFT
 JoyPiAdvanced.tftInit()
-JoyPiAdvanced.tftDrawRectangle(10, 10, 50, 20, Color.blue)
+JoyPiAdvanced.tftDrawRectangle(10, 10, 50, 20, JoyPiAdvancedTFTColor.blue)
 
 // Check touch sensor no.5
 JoyPiAdvanced.touchsensorInit()

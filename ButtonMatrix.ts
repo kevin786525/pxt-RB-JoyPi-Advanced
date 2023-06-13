@@ -185,6 +185,6 @@ namespace JoyPiAdvanced  {
         if (value == 43) return "+"
         if (value == 44) return "-"
 
-        return -1
+        return "-1"
     }
 }

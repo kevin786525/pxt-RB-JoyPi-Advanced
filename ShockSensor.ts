@@ -8,6 +8,7 @@ namespace JoyPiAdvanced {
     //% subcategory="Shock sensor"
     //% weight=100
     export function shocksensorCheck(): boolean {
+      led.enable(false)
       if(pins.digitalReadPin(shockSensorPin)){
         return true
       }
