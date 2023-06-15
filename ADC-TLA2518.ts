@@ -1,52 +1,77 @@
 namespace JoyPiAdvanced {
-    const ADCPIN = DigitalPin.P16
-    const SYSTEMSTATUS = 0x00
-    const READCMD = 0x10
-    const WRITECMD = 0x08
-    const PINCFG = 0x05
-    const CHANNELSEL = 0x11
+
+  const ADCPIN = DigitalPin.P16;
+  const SYSTEM_STATUS = 0x00;
+  const READ_CMD = 0x10;
+  const WRITE_CMD = 0x8;
+  const CHANNEL_SEL = 0x11;
+  const PIN_CFG = 0x5;
+  const SEQUENCE_CFG = 0x10;
+  const DATA_CFG = 0x2;
   
-    function readRegister(register: number): number {
-      pins.digitalWritePin(ADCPIN, 0)
-      pins.spiWrite(READCMD)
-      pins.spiWrite(register)
-      pins.spiWrite(READCMD)
-      pins.digitalWritePin(ADCPIN, 1)
-      pins.digitalWritePin(ADCPIN, 0)
-      let returnValue = pins.spiWrite(READCMD)
-      pins.digitalWritePin(ADCPIN, 1)
-      return returnValue
+  function setup(): void {
+      //let data = readRegister(SEQUENCE_CFG);
+      //writeRegister(SEQUENCE_CFG, data & 0xFC);
+      pins.spiFrequency(100000);
+      writeRegister(PIN_CFG, 0x00);
+      writeRegister(SEQUENCE_CFG, 0x00);
+      //writeRegister(0x1, 0b00000100);
+      //pins.spiFormat(8, 3);
+  }
   
-    }
+  function readRegister(reg: number): number {
+      let writeBuffer = pins.createBuffer(3);
+      let receiveBuffer = pins.createBuffer(1);
+      writeBuffer[0] = READ_CMD;
+      writeBuffer[1] = reg;
+      writeBuffer[2] = 0x00;
+      
+      pins.digitalWritePin(ADCPIN, 0);
+      pins.spiTransfer(writeBuffer, null);
   
-    function writeRegister(register: number, data: number): number {
-      // 24-Bit SPI frame for writing data
-      pins.digitalWritePin(ADCPIN, 0)
-      // Send 8-Bit write command
-      pins.spiWrite(WRITECMD)
-      // Send 8-Bit register address
-      pins.spiWrite(register)
-      // Send 8-Bit data
-      let returnValue = pins.spiWrite(data)
-      pins.digitalWritePin(ADCPIN, 1)
-      return returnValue
-    }
+      pins.digitalWritePin(ADCPIN, 1);
+      control.waitMicros(40);
+      pins.digitalWritePin(ADCPIN, 0);
   
-    function read(channel: number): number {
-      writeRegister(CHANNELSEL, channel)
-      let data = readRegister(READCMD)
-      writeRegister(READCMD, (data & 0xFC))
-      writeRegister(PINCFG, READCMD)
-      writeRegister(READCMD, READCMD)
-      pins.digitalWritePin(ADCPIN, 0)
-      let byteOne = pins.spiWrite(SYSTEMSTATUS)
-      let byteTwo = pins.spiWrite(SYSTEMSTATUS)
-      pins.digitalWritePin(ADCPIN, 1)
+      let returnValue = pins.spiWrite(0x00);
+      pins.digitalWritePin(ADCPIN, 1);
+      control.waitMicros(40);
+      return returnValue;
+  }
   
-      let returnValue = ((byteOne << 8) | byteTwo) >> 4
-      return returnValue
+  function writeRegister(reg: number, data: number) {
+      let writeBuffer = pins.createBuffer(3);
+      writeBuffer[0] = WRITE_CMD;
+      writeBuffer[1] = reg;
+      writeBuffer[2] = data;
   
-    }
+      pins.digitalWritePin(ADCPIN, 0);
+      pins.spiTransfer(writeBuffer, null);
+      pins.digitalWritePin(ADCPIN, 1);
+      control.waitMicros(40);
+  }
+  
+  function read(channel: number): number {
+      // Select channel
+      writeRegister(CHANNEL_SEL, channel);
+  
+      // write empty bytes
+      let writeBuffer = pins.createBuffer(2);
+      writeBuffer[0] = 0x00;
+      writeBuffer[1] = 0x00;
+      pins.digitalWritePin(ADCPIN, 0);
+      pins.spiTransfer(writeBuffer, null);
+      pins.digitalWritePin(ADCPIN, 1);
+  
+      // read by writing 2 empty bytes
+      pins.digitalWritePin(ADCPIN, 0);
+      let dataOne = pins.spiWrite(0x00);
+      let dataTwo = pins.spiWrite(0x00);
+      pins.digitalWritePin(ADCPIN, 1);
+      let response = (((dataOne << 8) | dataTwo) >> 4);
+      return response;
+  }
+    
   
     /**
      * Reads the value of the analog digital converter on a specified channel
@@ -57,6 +82,7 @@ namespace JoyPiAdvanced {
     //% channel.min=0 channel.max=7
     //% weight=100
     export function adcReadValue(channel: number): number {
+      setup()
       return read(channel)
     }
   
