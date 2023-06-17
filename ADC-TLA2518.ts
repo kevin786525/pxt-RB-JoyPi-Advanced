@@ -10,13 +10,12 @@ namespace JoyPiAdvanced {
   const DATA_CFG = 0x2;
   
   function setup(): void {
-      //let data = readRegister(SEQUENCE_CFG);
-      //writeRegister(SEQUENCE_CFG, data & 0xFC);
       pins.spiFrequency(100000);
+      pins.spiFormat(8, 0);
+      let data = readRegister(SEQUENCE_CFG);
+      writeRegister(SEQUENCE_CFG, data & 0xFC);
       writeRegister(PIN_CFG, 0x00);
       writeRegister(SEQUENCE_CFG, 0x00);
-      //writeRegister(0x1, 0b00000100);
-      //pins.spiFormat(8, 3);
   }
   
   function readRegister(reg: number): number {
