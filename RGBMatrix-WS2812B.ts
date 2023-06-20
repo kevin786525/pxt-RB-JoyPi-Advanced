@@ -95,7 +95,7 @@ namespace JoyPiAdvanced {
             b = (b * brightness) >> 8
         }
 
-        let position = mapping[x][y]
+        let position = mapping[y][x]
 
         write(position * 3, r, g, b)
         show()
