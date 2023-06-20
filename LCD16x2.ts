@@ -114,28 +114,6 @@ namespace JoyPiAdvanced {
     }
 
     /**
-     * Turns the 16x2 LCD display on
-     */
-    //% block="turn on 16x2LCD"
-    //% subcategory="LCD16x2"
-    //% weight=81
-    export function lcd16x2TurnOn(): void {
-        command(0x0C);
-        lcd16x2BacklightOn();
-    }
-
-    /**
-     * Turns the 16x2 LCD display off
-     */
-    //% block="turn off 16x2LCD"
-    //% subcategory="LCD16x2"
-    //% weight=80
-    export function lcd16x2TurnOff(): void {
-        command(0x08);
-        lcd16x2BacklightOff();
-    }
-
-    /**
      * Clears all outputs on the 16x2 LCD display
      */
     //% block="clear 16x2LCD"
