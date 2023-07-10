@@ -419,7 +419,7 @@
       //% subcategory="TFT1.8"
       //% weight=65
       export function tftClear(): void {
-          tftDrawRectangle(0, 0, TFTWIDTH, TFTHEIGHT, 0)
+          tftDrawRectangle(0, 0, TFTWIDTH, TFTHEIGHT, JoyPiAdvancedTFTColor.black)
       }
  
       /**
