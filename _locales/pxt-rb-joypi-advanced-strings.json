@@ -100,7 +100,7 @@
   "JoyPiAdvanced.tftInit|block": "initialize TFT Display",
   "JoyPiAdvanced.tftOff|block": "turn TFT display off",
   "JoyPiAdvanced.tftOn|block": "turn TFT display on",
-  "JoyPiAdvanced.tftShowString|block": "show string:%string on TFT at x:%x and y:%y with zoom-level:%zoom color:%color and background color:%bgcolor",
+  "JoyPiAdvanced.tftShowString|block": "show string:%string on TFT at x:%x and y:%y with zoom-level:%zoom color:%JoyPiAdvancedTFTColor and background color:%JoyPiAdvancedTFTColor",
   "JoyPiAdvanced.touchSensorCheck|block": "check touch sensor %sensorSelection",
   "JoyPiAdvanced.touchsensorInit|block": "initialize touch sensor",
   "JoyPiAdvanced.turnMotor|block": "turn servo motor to %degrees degree",
