@@ -182,4 +182,48 @@ namespace JoyPiAdvanced {
     export function lcd16x2ReturnHome(): void {
         command(0x02);
     }
+
+    /**
+     * Turn the display off
+     */
+    //% block="turn off 16x2 LCD"
+    //% weight=19
+    //% subcategory="LCD16x2"
+    export function lcd16x2TurnOff(): void {
+        lcd16x2BacklightOff();
+        command(0x00);
+    }
+
+    /**
+ * Turn the display on
+ */
+    //% block="turn on 16x2 LCD"
+    //% weight=19
+    //% subcategory="LCD16x2"
+    export function lcd16x2TurnOn(): void {
+        lcd16x2BacklightOn();
+        command(0x04);
+    }
+
+    /**
+ * Turn the display off
+ */
+    //% block="turn off 16x2 LCD backlight"
+    //% weight=18
+    //% subcategory="LCD16x2"
+    export function lcd16x2BacklightOff(): void {
+        Backlight = 0x00;
+        set(0);
+    }
+
+    /**
+ * Turn the backlight on
+ */
+    //% block="turn on 16x2 LCD backlight"
+    //% weight=17
+    //% subcategory="LCD16x2"
+    export function lcd16x2BacklightOn(): void {
+        Backlight = 0x80
+        set(0);
+    }
 }
