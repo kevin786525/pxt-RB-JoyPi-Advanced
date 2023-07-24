@@ -308,6 +308,7 @@
          exitDataMode()
       }
  
+      
       /**
        * Draws a circle on the TFT
        * @param x X coordinate of the circle center point
