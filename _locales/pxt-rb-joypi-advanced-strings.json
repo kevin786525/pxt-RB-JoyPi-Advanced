@@ -93,7 +93,7 @@
   "JoyPiAdvanced.stepperRotate|block": "rotate stepper %JoypiAdvancedStepperDirection for %steps | %unit",
   "JoyPiAdvanced.switchCheck|block": "check switch %switch",
   "JoyPiAdvanced.tftClear|block": "clear TFT screen",
-  "JoyPiAdvanced.tftDrawCircle|block": "draw circle on TFT at: x:%x|y:%y with radius:%r and color:%color",
+  "JoyPiAdvanced.tftDrawCircle|block": "draw circle on TFT at: x:%x|y:%y with radius:%r and color:%JoyPiAdvancedTFTColor",
   "JoyPiAdvanced.tftDrawLine|block": "draw line from x0:%x0|y0:%y0 to x1:%x1|y:%y1 with color:%JoyPiAdvancedTFTColor",
   "JoyPiAdvanced.tftDrawPixel|block": "draw single pixel on TFT at x:%x|y:%y with color:%JoyPiAdvancedTFTColor",
   "JoyPiAdvanced.tftDrawRectangle|block": "draw rectangle on TFT at x:%x|y:%y with width:%width|height:%height|color:%JoyPiAdvancedTFTColor",

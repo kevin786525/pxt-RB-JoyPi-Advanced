@@ -315,7 +315,7 @@
        * @param radius Radius of the circle
        * @param color Color of the circle
        */
-      //% block="draw circle on TFT at: x:%x|y:%y with radius:%r and color:%color"
+      //% block="draw circle on TFT at: x:%x|y:%y with radius:%r and color:%JoyPiAdvancedTFTColor"
       //% subcategory="TFT1.8"
       //% x.min=1 x.max=130
       //% y.min=1 y.max=162
