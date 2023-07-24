@@ -342,7 +342,7 @@
        * @param color Color of the text
        * @param bgColor Background color of the text
        */
-       //% block="show string:%string on TFT at x:%x and y:%y with zoom-level:%zoom color:%color and background color:%bgcolor"
+       //% block="show string:%string on TFT at x:%x and y:%y with zoom-level:%zoom color:%JoyPiAdvancedTFTColor and background color:%JoyPiAdvancedTFTColor"
        //% subcategory="TFT1.8"
        //% weight=70
        //% x.min=1 x.max=130
