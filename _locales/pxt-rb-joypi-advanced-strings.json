@@ -15,7 +15,7 @@
   "JoyPiAdvanced.colorSensorGetWhite|block": "color sensor white value",
   "JoyPiAdvanced.dht11GetHumidity|block": "DHT11 humidity",
   "JoyPiAdvanced.dht11GetTemperature|block": "DHT11 temperature",
-  "JoyPiAdvanced.eeepromWrite|block": "write %dat to EEPROM address %addr",
+  "JoyPiAdvanced.eepromWrite|block": "write %dat to EEPROM address %addr",
   "JoyPiAdvanced.eepromRead|block": "read byte from EEPROM address %addr",
   "JoyPiAdvanced.gyroscopeGetTemperature|block": "gyroscope temperature",
   "JoyPiAdvanced.gyroscopeGetTilt|block": "gyroscope tilt direction",

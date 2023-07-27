@@ -52,6 +52,7 @@ namespace JoyPiAdvanced {
         led.enable(false)
 
         pins.setPull(rotaryDTPin, PinPullMode.PullUp);
+        pins.setPull(rotarySWPin, PinPullMode.PullUp);
         // Interrupt the code on a rising edge on the rotaryCLKPin to execute the RotaryEncoder() function
         pins.onPulsed(rotaryCLKPin, PulseValue.High, function () {
             currentCLK = 1
