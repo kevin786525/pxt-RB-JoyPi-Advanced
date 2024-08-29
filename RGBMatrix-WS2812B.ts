@@ -1,5 +1,5 @@
 namespace JoyPiAdvanced {
-    const RGBMATRIXADDR = DigitalPin.P8
+    const RGBMATRIXADDR = DigitalPin.P2
 
     let brightness: number
     let length: number = 64
