@@ -1,5 +1,5 @@
 namespace JoyPiAdvanced {
-    const IRADDR = DigitalPin.P0
+    const IRADDR = DigitalPin.P5
     const IR_REPEAT = 256
     const IR_INCOMPLETE = 257
     const IR_DATAGRAM = 258
