@@ -38,7 +38,7 @@ namespace JoyPiAdvanced {
         ];
 
         pins.digitalWritePin(RGBMATRIXADDR, 0)
-        brightness = 0x80
+        brightness = 0x0a
 
         let len = 0
         for (let i = 0; i < width; i++) {
