@@ -109,10 +109,10 @@ namespace JoyPiAdvanced {
         displayBuffer[1] = bufferArray[0];
         displayBuffer[3] = bufferArray[1];
         if(colon == JoyPiAdvancedColon.on){
-            displayBuffer[9] = 0xFF;
+            displayBuffer[5] = 0xFF;
         }
-        displayBuffer[5] = bufferArray[2];
-        displayBuffer[7] = bufferArray[3];
+        displayBuffer[7] = bufferArray[2];
+        displayBuffer[9] = bufferArray[3];
 
         pins.i2cWriteBuffer(segmentADDR, displayBuffer);
 
